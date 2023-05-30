@@ -28,7 +28,16 @@
     </div>
     
     <!-- Nav Item - User Collapse Menu -->
-    <li class="nav-item" >
+    <li class="<?php
+    if (str_contains($_SERVER['PHP_SELF'], '/dosen')) {
+        echo 'nav-item active';
+    } elseif (str_contains($_SERVER['PHP_SELF'], '/ormawa')) {
+        echo 'nav-item active';
+    } elseif (str_contains($_SERVER['PHP_SELF'], '/mahasiswa')) {
+        echo 'nav-item active';
+    } else {
+        echo 'nav-item';
+    } ?>" >
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUser" aria-expanded="true" aria-controls="collapseUser">
             <i class="fas fa-users fa-cog"></i>
             <span>User</span>
@@ -52,7 +61,7 @@
             
 
     <!-- Nav Item - Ruangan Collapse Menu -->
-    <li class="nav-item">
+    <li class="<?= str_contains($_SERVER['PHP_SELF'], '/ruangan') ? 'nav-item active' : 'nav-item' ?>">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" aria-expanded="true" aria-controls="collapseRuangan" data-target="#collapseRuangan"  >
             <i class="fas fa-fw fa-door-open"></i>
             <span>Ruangan</span>
@@ -67,14 +76,14 @@
 
 
     <!-- Nav Item - Ruangan Collapse Menu -->
-    <li class="nav-item">
+    <li class="<?= str_contains($_SERVER['PHP_SELF'], '/peminjaman') ? 'nav-item active' : 'nav-item' ?>">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePeminjaman" aria-expanded="true" aria-controls="collapsePeminjaman">
             <i class="fas fa-fw fa-file"></i>
             <span>Riwayat Peminjaman</span>
         </a>
-        <div id="collapsePeminjaman" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+        <div id="collapsePeminjaman" class="<?= str_contains($_SERVER['PHP_SELF'], '/peminjaman') ? 'collapse show' : 'collapse' ?>" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="../peminjaman/index.php">List</a>
+                <a class="<?= str_contains($_SERVER['PHP_SELF'], '/peminjaman/index.php') ? 'collapse-item active' : 'collapse-item' ?>" href="../peminjaman/index.php">List</a>
             </div>
         </div>
     </li>
