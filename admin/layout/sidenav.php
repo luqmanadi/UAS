@@ -14,7 +14,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="<?= str_contains($_SERVER['PHP_SELF'], '/admin') ? '../admin/index.php' : '../user/index.php' ?>">
+        <a class="nav-link" href="<?= str_contains($_SERVER['PHP_SELF'], '/admin') ? 'index.php' : 'index.php' ?>">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
