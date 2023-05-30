@@ -1,6 +1,6 @@
 <?php
 
-require_once '../../layout/top.php';
+require_once '../layout/top.php';
 
 ?>
 
@@ -33,5 +33,5 @@ require_once '../../layout/top.php';
 <!-- End of Main Content -->
 
 <?php
-require_once '../../layout/bottom.php';
+require_once '../layout/bottom.php';
 ?>
