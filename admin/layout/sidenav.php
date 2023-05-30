@@ -13,7 +13,7 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
+    <li class="<?= str_contains($_SERVER['PHP_SELF'], '/dashboard') ? 'nav-item active' : 'nav-item' ?>">
         <a class="nav-link" href="../dashboard/index.php">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
@@ -33,12 +33,19 @@
             <i class="fas fa-users fa-cog"></i>
             <span>User</span>
         </a>
-        <div id="collapseUser" class="collapse" aria-labelledby="headingUser" data-parent="#accordionSidebar">
+        <div id="collapseUser" class=" <?php 
+        if(str_contains($_SERVER['PHP_SELF'], '/dosen')){
+            echo 'collapse show';
+        }elseif (str_contains($_SERVER['PHP_SELF'], '/ormawa')) {
+            echo 'collapse show';
+        }elseif (str_contains($_SERVER['PHP_SELF'], '/mahasiswa')) {
+            echo 'collapse show';
+        }else{echo 'collapse';} ?>" aria-labelledby="headingUser" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Daftar User :</h6>
-                <a class="collapse-item" href="../dosen/index.php">Dosen</a>
-                <a class="collapse-item" href="../ormawa/index.php">Ormawa</a>
-                <a class="collapse-item" href="../mahasiswa/index.php">Mahasiswa</a>
+                <a class="<?= str_contains($_SERVER['PHP_SELF'],'/dosen')?'collapse-item active':'collapse-item'?>" href="../dosen/index.php">Dosen</a>
+                <a class="<?= str_contains($_SERVER['PHP_SELF'], '/ormawa') ? 'collapse-item active' : 'collapse-item'?>" href="../ormawa/index.php">Ormawa</a>
+                <a class="<?= str_contains($_SERVER['PHP_SELF'], '/mahasiswa') ? 'collapse-item active' : 'collapse-item' ?>" href="../mahasiswa/index.php">Mahasiswa</a>
             </div>
         </div>
     </li>
@@ -50,10 +57,10 @@
             <i class="fas fa-fw fa-door-open"></i>
             <span>Ruangan</span>
         </a>
-        <div  id="collapseRuangan" class="collapse" data-parent="#accordionSidebar" aria-labelledby="headingRuangan" >
+        <div  id="collapseRuangan" class="<?= str_contains($_SERVER['PHP_SELF'], '/ruangan') ? 'collapse show' : 'collapse' ?>" data-parent="#accordionSidebar" aria-labelledby="headingRuangan" >
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="../ruangan/index.php">List</a>
-                <a class="collapse-item" href="../ruangan/create.php">Tambah Ruang</a>
+                <a class="<?= str_contains($_SERVER['PHP_SELF'], '/ruangan/index.php') ? 'collapse-item active' : 'collapse-item' ?>" href="../ruangan/index.php">List</a>
+                <a class="<?= str_contains($_SERVER['PHP_SELF'], '/ruangan/create.php') ? 'collapse-item active' : 'collapse-item' ?>" href="../ruangan/create.php">Tambah Ruang</a>
             </div>
         </div>
     </li>
