@@ -1,16 +1,8 @@
 <?php
-session_start();
-require_once '../../helper/middleware.php';
-require_once '../../helper/connection.php';
-require_once '../../helper/repository/mahasiswa_repository.php';
-
-if (!isLogin() || !isAdmin()) {
-    header("Location: ../../login.php");
-}
-
-$dataMahasiswa = getAllMahasiswa($connection);
 
 require_once '../layout/top.php';
+$dataMahasiswa = getAllMahasiswa($connection);
+
 ?>
 
 <!-- Begin Page Content -->

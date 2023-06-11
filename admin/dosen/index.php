@@ -1,16 +1,9 @@
 <?php
-session_start();
-require_once '../../helper/middleware.php';
-require_once '../../helper/connection.php';
-require_once '../../helper/repository/dosen_repository.php';
-
-if (!isLogin() || !isAdmin()) {
-    header("Location: ../../login.php");
-}
+require_once '../layout/top.php';
 
 $dataDosen = getAllDosen($connection);
 
-require_once '../layout/top.php';
+
 ?>
 
 <!-- Begin Page Content -->
@@ -56,9 +49,9 @@ require_once '../layout/top.php';
                             <td><?= $data['nama'] ?></td>
                             <td><?= $data['email'] ?></td>
                             <td>
-                                <a class="btn btn-sm btn-warning" href="detail.php?id_user=<?= $data['id_user'] ?>"><i class="fas fa-info-circle"></i></a>
-                                <a class="btn btn-sm btn-info" href="edit.php?id_user=<?= $data['id_user'] ?>"><i class="fas fa-edit fa-fw"></i></a>
-                                <a class="btn btn-sm btn-danger mb-md-0 mb-1" href="../aksi.php?id_user=<?= $data['id_user'] ?>"><i class="fas fa-trash fa-fw"></i></a>
+                                <a class="btn btn-sm btn-warning" href="detail.php?id_dosen=<?= $data['id_dosen'] ?>"><i class="fas fa-info-circle"></i></a>
+                                <a class="btn btn-sm btn-info" href="edit.php?id_dosen=<?= $data['id_dosen'] ?>"><i class="fas fa-edit fa-fw"></i></a>
+                                <a class="btn btn-sm btn-danger mb-md-0 mb-1" href="../aksi.php?id_dosen=<?= $data['id_dosen'] ?>"><i class="fas fa-trash fa-fw"></i></a>
                             </td>
                             </tr>
                         <?php endforeach ?>

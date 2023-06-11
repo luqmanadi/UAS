@@ -1,17 +1,10 @@
 <?php
 
-session_start();
-require_once '../../helper/middleware.php';
-require_once '../../helper/connection.php';
-require_once '../../helper/repository/ormawa_repository.php';
-
-if (!isLogin() || !isAdmin()) {
-    header("Location: ../../login.php");
-}
-
-$dataOrmawa = getAllOrmawa($connection);
 require_once '../layout/top.php';
+$dataOrmawa = getAllOrmawa($connection);
+
 ?>
+
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
@@ -32,7 +25,7 @@ require_once '../layout/top.php';
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>ID Mahasiswa</th>
+                            <th>ID Ormawa</th>
                             <th>Nama</th>
                             <th>Email</th>
                             <th>Aksi</th>
@@ -41,7 +34,7 @@ require_once '../layout/top.php';
                     <tfoot>
                         <tr>
                             <th>No</th>
-                            <th>ID Mahasiswa</th>
+                            <th>ID Ormawa</th>
                             <th>Nama</th>
                             <th>Email</th>
                             <th>Aksi</th>

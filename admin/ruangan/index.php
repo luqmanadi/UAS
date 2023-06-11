@@ -1,16 +1,9 @@
 <?php
-session_start();
-require_once '../../helper/middleware.php';
-require_once '../../helper/connection.php';
-require_once '../../helper/repository/ruangan_repository.php';
-
-if (!isLogin() || !isAdmin()) {
-    header("Location: ../../login.php");
-}
-
-$dataRuangan = getAllRuang($connection);
 
 require_once '../layout/top.php';
+$dataRuangan = getAllRuang($connection);
+
+
 ?>
 
 <!-- Begin Page Content -->
