@@ -1,6 +1,5 @@
 <?php
-
-require_once '../layout/top.php';
+session_start();
 require_once '../../helper/middleware.php';
 require_once '../../helper/connection.php';
 
@@ -8,6 +7,8 @@ if (!isLogin() || !isAdmin()) {
     header("Location: ../../login.php");
 }
 
+
+require_once '../layout/top.php';
 ?>
 
 <!-- Begin Page Content -->

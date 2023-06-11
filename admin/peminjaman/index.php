@@ -1,7 +1,14 @@
 <?php
 
-require_once '../layout/top.php';
+session_start();
+require_once '../../helper/middleware.php';
+require_once '../../helper/connection.php';
 
+if (!isLogin() || !isAdmin()) {
+    header("Location: ../../login.php");
+}
+
+require_once '../layout/top.php';
 ?>
 
 <!-- Begin Page Content -->
@@ -9,7 +16,7 @@ require_once '../layout/top.php';
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Daftar Peminjam</h1>
+        <h1 class="h3 mb-0 text-gray-800">Daftar Peminjaman</h1>
     </div>
 
     <!-- Content Row -->
