@@ -68,4 +68,13 @@ function deleteDosen($connection, $id_user)
     }
 }
 
+
+function hitungDosen($connection){
+    $dosen = mysqli_query($connection, "SELECT COUNT(*) FROM tbl_dosen");
+    $total_dosen = mysqli_fetch_array($dosen)[0];
+    return $total_dosen;
+}
+
+
 ?>
+

@@ -63,4 +63,12 @@ function deleteMahasiswa($connection, $id_user) {
     }
 }
 
+
+function hitungMahasiswa($connection)
+{
+    $mahasiswa = mysqli_query($connection, "SELECT COUNT(*) FROM tbl_mahasiswa");
+    $total_mahasiswa = mysqli_fetch_array($mahasiswa)[0];
+    return $total_mahasiswa;
+}
+
 ?>

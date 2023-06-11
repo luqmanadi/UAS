@@ -6,13 +6,17 @@
     require_once '../../helper/repository/mahasiswa_repository.php';
     require_once '../../helper/repository/ruangan_repository.php';
     require_once '../../helper/repository/peminjaman_repository.php';
+    require_once '../../helper/repository/ormawa_repository.php';
 
 
     if(!isLogin() || !isAdmin()){
         header("Location: ../../login.php");
     }
 
-
+    $dosen = hitungDosen($connection);
+    $mahasiswa = hitungMahasiswa($connection);
+    $ruangan = hitungRuangan($connection);
+    $ormawa = hitungOrmawa($connection);
 
 
 
@@ -39,7 +43,7 @@ require_once '../layout/top.php';
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Ruangan</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">27 Ruang</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $ruangan ?></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -57,7 +61,7 @@ require_once '../layout/top.php';
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 Dosen</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">30 Orang</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $dosen ?></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -77,7 +81,7 @@ require_once '../layout/top.php';
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">300 Orang</div>
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?= $mahasiswa ?></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -96,8 +100,8 @@ require_once '../layout/top.php';
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Peminjam Ruangan</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18 Orang</div>
+                                                Ormawa</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $ormawa ?></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-comments fa-2x text-gray-300"></i>

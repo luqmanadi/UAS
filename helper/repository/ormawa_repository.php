@@ -68,4 +68,11 @@ function deleteOrmawa($connection, $id_user)
     }
 }
 
+function hitungOrmawa($connection)
+{
+    $ormawa = mysqli_query($connection, "SELECT COUNT(*) FROM tbl_ormawa");
+    $total_ormawa = mysqli_fetch_array($ormawa)[0];
+    return $total_ormawa;
+}
+
 ?>

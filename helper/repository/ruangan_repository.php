@@ -47,4 +47,10 @@ function deleteRuangan($connection, $id_ruangan)
     }
 }
 
+function hitungRuangan($connection)
+{
+    $ruangan = mysqli_query($connection, "SELECT COUNT(*) FROM tbl_ruangan");
+    $total_ruangan = mysqli_fetch_array($ruangan)[0];
+    return $total_ruangan;
+}
 ?>
