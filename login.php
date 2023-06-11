@@ -1,3 +1,19 @@
+<?php 
+    session_start();
+    require_once 'helper/middleware.php';
+
+    if(isLogin()){
+        if(isAdmin()){
+            header("Location: admin/dashboard/dashboard.php");
+        }else if(isUser()){
+            header("Location: user/dahboard.php");
+        }
+    }
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,7 +53,7 @@
                             </div>
 
                             <div class="card-body">
-                                <form method="POST" action="" class="needs-validation" novalidate="">
+                                <form method="POST" action="helper/auth/cek_login.php" class="needs-validation" novalidate="">
                                     <div class="form-group">
                                         <label for="username">Username</label>
                                         <input id="username" type="text" class="form-control" name="username"
@@ -59,7 +75,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <button name="submit" type="submit" class="btn btn-primary btn-lg btn-block"
+                                        <button name="login" type="submit" class="btn btn-primary btn-lg btn-block"
                                             tabindex="3">
                                             Login
                                         </button>
@@ -71,6 +87,9 @@
                         <div class="simple-footer">
                             UIN WS
                         </div>
+                        <?php if (isset($_GET['loginFail'])): ?>
+                            <div class="alert alert-danger mt-4" role="alert">Gagal Login</div>
+                        <?php endif ?>
                     </div>
                 </div>
             </div>
