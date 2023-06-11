@@ -2,13 +2,13 @@
 session_start();
 require_once '../../helper/middleware.php';
 require_once '../../helper/connection.php';
-require_once '../../helper/repository/mahasiswa_repository.php';
+require_once '../../helper/repository/dosen_repository.php';
 
 if (!isLogin() || !isAdmin()) {
     header("Location: ../../login.php");
 }
 
-$dataMahasiswa = getAllMahasiswa($connection);
+$dataDosen = getAllDosen($connection);
 
 require_once '../layout/top.php';
 ?>
@@ -49,13 +49,19 @@ require_once '../layout/top.php';
                         </tr>
                     </tfoot>
                     <tbody>
+                        <?php foreach($dataDosen as $index => $data) : ?>
                         <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>2011/04/25</td>
-                        </tr>
+                            <th scope="row"><?= $index + 1 ?></th>
+                            <td><?= $data['id_dosen'] ?></td>
+                            <td><?= $data['nama'] ?></td>
+                            <td><?= $data['email'] ?></td>
+                            <td>
+                                <a class="btn btn-sm btn-warning" href="detail.php?id_user=<?= $data['id_user'] ?>"><i class="fas fa-info-circle"></i></a>
+                                <a class="btn btn-sm btn-info" href="edit.php?id_user=<?= $data['id_user'] ?>"><i class="fas fa-edit fa-fw"></i></a>
+                                <a class="btn btn-sm btn-danger mb-md-0 mb-1" href="../aksi.php?id_user=<?= $data['id_user'] ?>"><i class="fas fa-trash fa-fw"></i></a>
+                            </td>
+                            </tr>
+                        <?php endforeach ?>
                     </tbody>
                 </table>
             </div>

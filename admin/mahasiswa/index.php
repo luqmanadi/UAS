@@ -2,10 +2,13 @@
 session_start();
 require_once '../../helper/middleware.php';
 require_once '../../helper/connection.php';
+require_once '../../helper/repository/mahasiswa_repository.php';
 
 if (!isLogin() || !isAdmin()) {
     header("Location: ../../login.php");
 }
+
+$dataMahasiswa = getAllMahasiswa($connection);
 
 require_once '../layout/top.php';
 ?>
@@ -16,19 +19,53 @@ require_once '../layout/top.php';
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Daftar Mahasiswa</h1>
+        <a href="create.php" class="btn btn-primary">Tambah Data</a>
     </div>
 
-    <!-- Content Row -->
-    <div class="row">
-
-
-    </div>
-
-    <!-- Content Row -->
-
-    <div class="row">
-
-
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Data Tabel Mahasiswa</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>ID Mahasiswa</th>
+                            <th>Nama</th>
+                            <th>Email</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>No</th>
+                            <th>ID Mahasiswa</th>
+                            <th>Nama</th>
+                            <th>Email</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <?php foreach ($dataMahasiswa as $index => $data): ?>
+                            <tr>
+                                <th scope="row"><?= $index + 1 ?></th>
+                                <td><?= $data['id_mhs'] ?></td>
+                                <td><?= $data['nama'] ?></td>
+                                <td><?= $data['email'] ?></td>
+                                <td>
+                                    <a class="btn btn-sm btn-warning" href="detail.php?id_user=<?= $data['id_user'] ?>"><i class="fas fa-info-circle"></i></a>
+                                    <a class="btn btn-sm btn-info" href="edit.php?id_user=<?= $data['id_user'] ?>"><i class="fas fa-edit fa-fw"></i></a>
+                                    <a class="btn btn-sm btn-danger mb-md-0 mb-1" href="../aksi.php?id_user=<?= $data['id_user'] ?>"><i class="fas fa-trash fa-fw"></i></a>
+                                </td>
+                                </tr>
+                        <?php endforeach ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 
 
