@@ -22,40 +22,45 @@ $dataDosen = getDosen($connection,$id_dosen);
             <div class="card shadow">
                 <div class="card-body">
                     <!-- // Form -->
-                    <form action="./store.php" method="POST">
+                    <form action="../aksi.php" method="POST">
                         <table cellpadding="8" class="w-100">
 
                             <tr>
-                                <td>ID Dosen</td>
-                                <td><input class="form-control" type="number" name="id_dosen" size="20" readonly value="<?= $dataDosen['id_dosen'] ?>"></td>
+                                <td><label for="id_dosen" class="form-label">ID Dosen</label></td>
+                                <td><input class="form-control" type="number" name="id_dosen" id="id_dosen" size="20" readonly value="<?= $dataDosen['id_dosen'] ?>"></td>
                             </tr>
 
                             <tr>
-                                <td>Nama Dosen</td>
-                                <td><input class="form-control" type="text" name="nama" size="20" required></td>
+                                <td><label for="nama" class="form-label">Nama Lengkap</label></td>
+                                <td><input class="form-control" type="text" name="nama" id="nama" size="20" required value="<?= $dataDosen['nama'] ?>"></td>
                             </tr>
 
                             <tr>
-                                <td>Jenis Kelamin</td>
+                                <td><label for="username" class="form-label">Username</label></td>
+                                <td><input class="form-control" type="text" name="username" id="username" size="20" required value="<?= $dataDosen['username'] ?>"></td>
+                            
+                            </tr>
+
+                            <tr>
+                                <td><label for="password" class="form-label">Password</label></td>
+                                <td><input class="form-control" type="text" name="password" id="password" size="20" required value="<?= $dataDosen['password'] ?>"></td>
+                            </tr>
+                            
+                            <tr>
+                                <td><label for="email" class="form-label">Email</label></td>
+                                <td><input class="form-control" type="text" name="email" id="email" size="20" required value="<?= $dataDosen['email'] ?>"></td>
+                            
+                            </tr>
+
+                            <tr?>
+                                <td><label for="no_hp" class="form-label">NO HP</label></td>
+                                <td><input class="form-control" type="text" name="no_hp" id="no_hp" size="20" required value="<?= $dataDosen['no_hp'] ?>"></td>
+                            
+                            </tr>
+
+                            <tr>
                                 <td>
-                                    <select class="form-control" name="jenkel" id="jenkel" required>
-                                        <option value="">--Pilih Jenis Kelamin--</option>
-                                        <option value="Pria">Pria</option>
-                                        <option value="Wanita">Wanita</option>
-                                    </select>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>Alamat</td>
-                                <td colspan="3"><textarea class="form-control" name="alamat" id="alamat"
-                                        required></textarea></td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    <input class="btn btn-primary" type="submit" name="proses" value="Simpan">
-                                    <input class="btn btn-danger" type="reset" name="batal" value="Bersihkan">
+                                    <input class="btn btn-success" type="submit" name="edit_dosen" value="Simpan">
                                 </td>
                             </tr>
 
