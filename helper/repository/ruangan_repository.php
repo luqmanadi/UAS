@@ -1,38 +1,50 @@
-
 <?php
 
-function isTambahRuangan(){
-    $nama_ruangan = $_POST['nama_ruangan'];
-    $deskripsi = $_POST['deskripsi'];
-    $foto = $_FILES['foto']['name'];
-    $file_tmp = $_FILES['foto']['tmp_name'];
 
-    move_uploaded_file($file_tmp, 'master/ruangan/Fotoruangan/' . $foto);
-
-    mysqli_query($conn, "INSERT into ruangan values ('','$nama_ruangan','$deskripsi','$foto','free')");
-    echo "<script>alert ('Data Berhasil Disimpan') </script>";
-    echo "<meta http-equiv='refresh' content=0; URL=?view=dataruangan>";
+function getAllRuang($connection)
+{
+    $query = "SELECT * FROM tbl_ruangan";
+    $result = mysqli_query($connection, $query);
+    return $result;
 }
 
-function isUpdateRuangan(){
-    $id = $_POST['id'];
-    $nama_ruangan = $_POST['nama_ruangan'];
-    $deskripsi = $_POST['deskripsi'];
-    $foto = $_FILES['foto']['name'];
-    $file_tmp = $_FILES['foto']['tmp_name'];
-
-    move_uploaded_file($file_tmp, 'master/ruangan/Fotoruangan/' . $foto);
-
-    mysqli_query($conn, "UPDATE ruangan set id='$id', nama_ruangan='$nama_ruangan', deskripsi='$deskripsi', foto='$foto', status='free' where id='$id'");
-    echo "<script>alert ('Data Berhasil Diubah') </script>";
-    echo "<meta http-equiv='refresh' content=0; URL=?view=dataruangan>";
+function getRuangan($connection, $id_ruangan)
+{
+    $query = "SELECT * FROM tbl_ruangan  WHERE id_ruangan ='$id_ruangan";
+    $result = mysqli_query($connection, $query);
+    return $result->fetch_assoc();
 }
 
-function isDeleteRuangan(){
-    $id = $_POST['id'];
-    mysqli_query($conn, "DELETE from ruangan where id='$id'");
-    echo "<script>alert ('Data Berhasil Dihapus') </script>";
-    echo "<meta http-equiv='refresh' content=0; URL=?view=dataruangan>";
+function addRuangan($connection, $id_ruangan, $status, $kapasitas, $kategori)
+{ 
+    $query = "INSERT INTO tbl_ruangan (id_ruangan, status, kapasitas, kategori) VALUES ('$id_ruangan', '$status','$kapasitas', '$kategori')";
+    if (mysqli_query($connection, $query)) {
+        return 'Data Berhasil Ditambah';
+    } else {
+        return 'Data Gagal Ditambah' . mysqli_error($connection);
+    }
 }
 
+function updateRuangan($connection, $id_ruangan, $status, $kapasitas, $kategori)
+{
+    $query = "UPDATE tbl_ruangan SET status = '$status', kapasitas = '$kapasitas', kategori = '$kategori' WHERE id_ruangan = '$id_ruangan'";
 
+    if (mysqli_query($connection, $query)) {
+        return 'Data Berhasil Diubah';
+    } else {
+        return 'Data Gagal Diubah' . mysqli_error($connection);
+    }
+}
+
+function deleteRuangan($connection, $id_ruangan)
+{
+    $query = "DELETE FROM tbl_ruangan WHERE id_ruangan = '$id_ruangan'";
+
+    if (mysqli_query($connection, $query)) {
+        return 'Data Berhasil Dihapus';
+    } else {
+        return 'Data Gagal Dihapus' . mysqli_error($connection);
+    }
+}
+
+?>

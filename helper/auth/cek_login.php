@@ -7,7 +7,7 @@ if (isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $result = mysqli_query($con, "SELECT * FROM user WHERE username='$username' AND password='$password' LIMIT 1");
+    $result = mysqli_query($connection, "SELECT * FROM login WHERE username='$username' AND password='$password' LIMIT 1");
 
     $data = $result->fetch_assoc();
 
@@ -18,7 +18,7 @@ if (isset($_POST['login'])) {
         $_SESSION['level'] = $data['level'];
         if ($_SESSION['level'] == 1) {
             header('Location: ../../admin/dashboard/index.php');
-        } elseif ($_SESSION['level'] == 2) {
+        } elseif ($_SESSION['level'] == 2 or $_SESSION['level'] == 3) {
             header('Location: ../../user/dashboard.php');
         }
     } else {

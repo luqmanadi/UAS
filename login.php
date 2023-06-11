@@ -5,7 +5,7 @@
     if(isLogin()){
         if(isAdmin()){
             header("Location: admin/dashboard/dashboard.php");
-        }else if(isUser()){
+        }else if(isDosenOrmawa() or isMahasiswa()){
             header("Location: user/dahboard.php");
         }
     }
