@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 11 Jun 2023 pada 06.19
+-- Waktu pembuatan: 11 Jun 2023 pada 11.44
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.1.17
 
@@ -40,7 +40,7 @@ CREATE TABLE `login` (
 
 INSERT INTO `login` (`id_user`, `username`, `password`, `level`) VALUES
 (192100, 'admin', 'admin123', 1),
-(192101, 'dosen', 'dosen123', 2),
+(192101, 'DOSEN', 'DOSEN01', 2),
 (192102, 'ormawa', 'ormawa123', 2),
 (192103, 'mahasiswa', 'mahasiswa123', 3);
 
@@ -63,7 +63,7 @@ CREATE TABLE `tbl_dosen` (
 --
 
 INSERT INTO `tbl_dosen` (`id_dosen`, `id_user`, `nama`, `email`, `no_hp`) VALUES
-(50100, 192101, 'Iklil Mustofa', 'iklil22@gmail.com', '085778889657');
+(50100, 192101, 'IKLIL MUSTOFA', 'iklilmustofa@gmail.com', '087890765432');
 
 -- --------------------------------------------------------
 
@@ -131,11 +131,18 @@ CREATE TABLE `tbl_peminjaman` (
 
 CREATE TABLE `tbl_ruangan` (
   `id_ruangan` varchar(20) NOT NULL,
-  `waktu` varchar(20) NOT NULL,
   `status` varchar(20) NOT NULL,
   `kapasitas` varchar(10) NOT NULL,
   `kategori` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `tbl_ruangan`
+--
+
+INSERT INTO `tbl_ruangan` (`id_ruangan`, `status`, `kapasitas`, `kategori`) VALUES
+('ISDB 1.1', 'KOSONG', '40 Orang', 'SIDANG'),
+('ISDB 2.8', 'KOSONG', '40 Orang', 'KELAS');
 
 --
 -- Indexes for dumped tables
@@ -152,27 +159,29 @@ ALTER TABLE `login`
 --
 ALTER TABLE `tbl_dosen`
   ADD PRIMARY KEY (`id_dosen`),
-  ADD KEY `id_user` (`id_user`);
+  ADD KEY `tbl_dosen_ibfk_1` (`id_user`);
 
 --
 -- Indeks untuk tabel `tbl_mahasiswa`
 --
 ALTER TABLE `tbl_mahasiswa`
   ADD PRIMARY KEY (`id_mhs`),
-  ADD KEY `id_user` (`id_user`);
+  ADD KEY `tbl_mahasiswa_ibfk_1` (`id_user`);
 
 --
 -- Indeks untuk tabel `tbl_ormawa`
 --
 ALTER TABLE `tbl_ormawa`
   ADD PRIMARY KEY (`id_ormawa`),
-  ADD KEY `id_user` (`id_user`);
+  ADD KEY `tbl_ormawa_ibfk_1` (`id_user`);
 
 --
 -- Indeks untuk tabel `tbl_peminjaman`
 --
 ALTER TABLE `tbl_peminjaman`
-  ADD PRIMARY KEY (`id_peminjaman`);
+  ADD PRIMARY KEY (`id_peminjaman`),
+  ADD KEY `id_ruangan` (`id_ruangan`),
+  ADD KEY `id_user` (`id_user`);
 
 --
 -- Indeks untuk tabel `tbl_ruangan`
@@ -222,19 +231,26 @@ ALTER TABLE `tbl_peminjaman`
 -- Ketidakleluasaan untuk tabel `tbl_dosen`
 --
 ALTER TABLE `tbl_dosen`
-  ADD CONSTRAINT `tbl_dosen_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `login` (`id_user`);
+  ADD CONSTRAINT `tbl_dosen_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `login` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `tbl_mahasiswa`
 --
 ALTER TABLE `tbl_mahasiswa`
-  ADD CONSTRAINT `tbl_mahasiswa_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `login` (`id_user`);
+  ADD CONSTRAINT `tbl_mahasiswa_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `login` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `tbl_ormawa`
 --
 ALTER TABLE `tbl_ormawa`
-  ADD CONSTRAINT `tbl_ormawa_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `login` (`id_user`);
+  ADD CONSTRAINT `tbl_ormawa_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `login` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `tbl_peminjaman`
+--
+ALTER TABLE `tbl_peminjaman`
+  ADD CONSTRAINT `tbl_peminjaman_ibfk_1` FOREIGN KEY (`id_ruangan`) REFERENCES `tbl_ruangan` (`id_ruangan`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_peminjaman_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `login` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
