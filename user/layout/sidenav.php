@@ -80,11 +80,11 @@
             class="<?= str_contains($_SERVER['PHP_SELF'], '/ruangan') ? 'collapse show' : 'collapse' ?>"
             data-parent="#accordionSidebar" aria-labelledby="headingRuangan">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="<?= str_contains($_SERVER['PHP_SELF'], '/ruangan/index.php') ? 'collapse-item active' : 'collapse-item' ?>"
+				<a class="<?= str_contains($_SERVER['PHP_SELF'], '/ruangan/index.php') ? 'collapse-item active' : 'collapse-item' ?>"
                     href="../ruangan/index.php">List</a>
                 <a class="<?= str_contains($_SERVER['PHP_SELF'], '/ruangan/create.php') ? 'collapse-item active' : 'collapse-item' ?>"
                     href="../ruangan/create.php">Tambah Ruang</a>
-            </div>
+			 </div>
         </div>
     </li>
 
