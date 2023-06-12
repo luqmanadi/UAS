@@ -3,14 +3,14 @@
 
 function getAllDosen($connection)
 {
-    $query = "SELECT * FROM tbl_dosen";
+    $query = "SELECT * FROM tbl_dosen INNER JOIN login on tbl_dosen.id_user = login.id_user";
     $result = mysqli_query($connection, $query);
     return $result;
 }
 
-function getDosen($connection, $id_dosen)
+function getDosen($connection, $user_dosen)
 {
-    $query = "SELECT * FROM tbl_dosen INNER JOIN login on tbl_dosen.id_user = login.id_user WHERE id_dosen ='$id_dosen'";
+    $query = "SELECT * FROM login INNER JOIN tbl_dosen on login.id_user = tbl_dosen.id_user WHERE username ='$user_dosen'";
     $result = mysqli_query($connection, $query);
     return $result->fetch_assoc();
 }
@@ -36,19 +36,19 @@ function addDosen($connection, $username, $password, $level, $nama, $email, $no_
 
         // Periksa apakah query berhasil dijalankan
         if ($resultDosen) {
-            echo "Data Berhasil Ditambah";
+            return "Data Berhasil Ditambah";
         } else {
-            echo "Data Gagal Ditambah " . mysqli_error($connection);
+            return "Data Gagal Ditambah " . mysqli_error($connection);
         }
     } else {
-        echo "Terjadi kesalahan saat memasukkan data ke tabel login: " . mysqli_error($connection);
+        return "Terjadi kesalahan saat memasukkan data ke tabel login: " . mysqli_error($connection);
     }
 }
 
-function updateDosen($connection, $username, $password, $nama, $email, $no_hp, $id_dosen)
+function updateDosen($connection, $username, $password, $nama, $email, $no_hp, $user_dosen)
 {
     $query = "UPDATE tbl_dosen INNER JOIN login ON tbl_dosen.id_user = login.id_user SET login.username = '$username', 
-    login.password = '$password', tbl_dosen.nama = '$nama', tbl_dosen.email = '$email', tbl_dosen.no_hp = '$no_hp'  WHERE tbl_dosen.id_dosen = '$id_dosen'";
+    login.password = '$password', tbl_dosen.nama = '$nama', tbl_dosen.email = '$email', tbl_dosen.no_hp = '$no_hp'  WHERE login.username = '$user_dosen'";
 
     if (mysqli_query($connection, $query)) {
         return 'Data Berhasil Diubah';
@@ -57,9 +57,9 @@ function updateDosen($connection, $username, $password, $nama, $email, $no_hp, $
     }
 }
 
-function deleteDosen($connection, $id_dosen)
+function deleteDosen($connection, $user_dosen)
 {
-    $query = "DELETE login, tbl_dosen FROM login INNER JOIN tbl_dosen ON login.id_user = tbl_dosen.id_user WHERE tbl_dosen.id_dosen = '$id_dosen'";
+    $query = "DELETE login, tbl_dosen FROM login INNER JOIN tbl_dosen ON login.id_user = tbl_dosen.id_user WHERE login.username = '$user_dosen'";
 
     if (mysqli_query($connection, $query)) {
         return 'Data Berhasil Dihapus';

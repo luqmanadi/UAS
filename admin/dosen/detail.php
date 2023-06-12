@@ -2,8 +2,8 @@
 
 require_once '../layout/top.php';
 
-$id_dosen = $_GET['id_dosen'];
-$dataDosen= getDosen($connection, $id_dosen);
+$user_dosen = $_GET['user_dosen'];
+$dataDosen= getDosen($connection, $user_dosen);
 
 ?>
 
@@ -12,7 +12,7 @@ $dataDosen= getDosen($connection, $id_dosen);
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Detail Dosen</h1>
+        <h1 class="h3 mb-0 text-gray-800">Dosen</h1>
         <a href="index.php" class="btn btn-primary">Kembali</a>
     </div>
 
@@ -21,7 +21,7 @@ $dataDosen= getDosen($connection, $id_dosen);
             <div class="card shadow">
                 <div class="card-header">
                     <div class="d-flex align-items-center">
-                        <h4 class="card-title">Detail Profile Dosen</h4>
+                        <h4 class="card-title text-primary font-weight-bold">Detail Profile Dosen</h4>
                     </div>
                 </div>
                 <div class="card-body">

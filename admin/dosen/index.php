@@ -11,7 +11,7 @@ $dataDosen = getAllDosen($connection);
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Daftar Dosen</h1>
+        <h1 class="h3 mb-0 text-gray-800">Dosen</h1>
         <a href="create.php" class="btn btn-primary">Tambah Data</a>
     </div>
 
@@ -42,17 +42,29 @@ $dataDosen = getAllDosen($connection);
                         </tr>
                     </tfoot>
                     <tbody>
-                        <?php foreach($dataDosen as $index => $data) : ?>
-                        <tr>
-                            <th scope="row"><?= $index + 1 ?></th>
-                            <td><?= $data['id_dosen'] ?></td>
-                            <td><?= $data['nama'] ?></td>
-                            <td><?= $data['email'] ?></td>
-                            <td>
-                                <a class="btn btn-sm btn-warning" href="detail.php?id_dosen=<?= $data['id_dosen'] ?>"><i class="fas fa-info-circle"></i></a>
-                                <a class="btn btn-sm btn-info" href="edit.php?id_dosen=<?= $data['id_dosen'] ?>"><i class="fas fa-edit fa-fw"></i></a>
-                                <a class="btn btn-sm btn-danger mb-md-0 mb-1" href="../aksi.php?id_dosen=<?= $data['id_dosen'] ?>"><i class="fas fa-trash fa-fw"></i></a>
-                            </td>
+                        <?php foreach ($dataDosen as $index => $data): ?>
+                            <tr>
+                                <th scope="row">
+                                    <?= $index + 1 ?>
+                                </th>
+                                <td>
+                                    <?= $data['id_user'] ?>
+                                </td>
+                                <td>
+                                    <?= $data['level'] ?>
+                                </td>
+                                <td>
+                                    <?= $data['email'] ?>
+                                </td>
+                                <td>
+                                    <a class="btn btn-sm btn-warning" href="detail.php?user_dosen=<?= $data['username'] ?>"><i
+                                            class="fas fa-info-circle"></i></a>
+                                    <a class="btn btn-sm btn-info" href="edit.php?user_dosen=<?= $data['username'] ?>"><i
+                                            class="fas fa-edit fa-fw"></i></a>
+                                    <a class="btn btn-sm btn-danger mb-md-0 mb-1"
+                                        href="../aksi.php?delete_dosen=<?= $data['username'] ?>"><i
+                                            class="fas fa-trash fa-fw"></i></a>
+                                </td>
                             </tr>
                         <?php endforeach ?>
                     </tbody>
@@ -70,4 +82,38 @@ $dataDosen = getAllDosen($connection);
 
 <?php
 require_once '../layout/bottom.php';
+?>
+
+
+<!-- Page Specific JS File -->
+<?php
+
+if (isset($_SESSION['info'])):
+    if ($_SESSION['info']['status'] == 'success') {
+        ?>
+        <script>
+            iziToast.success({
+                title: 'Sukses',
+                message: `<?= $_SESSION['info']['message'] ?>`,
+                position: 'topCenter',
+                timeout: 5000
+            });
+        </script>
+        <?php
+    } else {
+        ?>
+        <script>
+            iziToast.error({
+                title: 'Gagal',
+                message: `<?= $_SESSION['info']['message'] ?>`,
+                timeout: 5000,
+                position: 'topCenter'
+            });
+        </script>
+        <?php
+    }
+
+    unset($_SESSION['info']);
+    $_SESSION['info'] = null;
+endif;
 ?>

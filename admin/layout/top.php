@@ -42,6 +42,7 @@ if (!isLogin() || !isAdmin()) {
     <!-- Custom styles for this template-->
     <link href="../../assets/css/sb-admin-2.min.css" rel="stylesheet">
     <link href="../../assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/modules/izitoast/css/iziToast.min.css">
 
 </head>
 

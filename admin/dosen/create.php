@@ -9,7 +9,7 @@ require_once '../layout/top.php';
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Tambah Akun Dosen</h1>
+        <h1 class="h3 mb-0 text-gray-800">Dosen</h1>
         <a href="index.php" class="btn btn-primary">Kembali</a>
     </div>
 
@@ -17,12 +17,15 @@ require_once '../layout/top.php';
     <div class="row">
         <div class="col-12">
             <div class="card shadow">
+                <div class="card-header">
+                    <div class="d-flex align-items-center">
+                        <h4 class="card-title text-primary font-weight-bold">Tambah Data Dosen</h4>
+                    </div>
+                </div>
                 <div class="card-body">
                     <!-- // Form -->
                     <form action="../aksi.php" method="POST">
                         <table cellpadding="8" class="w-100">
-
-
 
                             <tr>
                                 <td><label for="nama" class="form-label">Nama Lengkap</label></td>
@@ -45,20 +48,32 @@ require_once '../layout/top.php';
 
                             <tr>
                                 <td><label for="email" class="form-label">Email</label></td>
-                                <td><input class="form-control" type="text" name="email" id="email" size="20" required>
+                                <td><input class="form-control" type="email" name="email" id="email" size="20" required>
                                 </td>
 
                             </tr>
 
-                            <tr?>
+                            <tr>
                                 <td><label for="no_hp" class="form-label">NO HP</label></td>
-                                <td><input class="form-control" type="text" name="no_hp" id="no_hp" size="20" required></td>
+                                <td><input class="form-control" type="number" name="no_hp" id="no_hp" size="20" required>
+                                </td>
 
-                                </tr>
+                            </tr>
 
                             <tr>
+                                <td><label for="level" class="form-label">Role / Level</label></td>
                                 <td>
-                                    <input class="btn btn-success" type="submit" name="edit_dosen" value="Simpan">
+                                    <select class="form-control" name="level" id="level" required>
+                                        <option value="">--Pilih--</option>
+                                        <option value="1">Admin</option>
+                                        <option value="2">Ormawa/Dosen</option>
+                                        <option value="3">Mahasiswa</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input class="btn btn-success" type="submit" name="tambah_dosen" value="Simpan">
                                     <input class="btn btn-danger" type="reset" name="batal" value="Bersihkan">
                                 </td>
                             </tr>
