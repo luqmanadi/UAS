@@ -7,8 +7,8 @@ function getAllMahasiswa($connection) {
     return $result;
 }
 
-function getMahasiswa($connection, $id_user) {
-    $query = "SELECT * FROM tbl_mahasiswa INNER JOIN login on tbl_mahasiswa.id_user = login.id_user WHERE id_user = '$id_user'";
+function getMahasiswa($connection, $id_mhs) {
+    $query = "SELECT * FROM tbl_mahasiswa INNER JOIN login on tbl_mahasiswa.id_user = login.id_user WHERE id_mhs = '$id_mhs'";
     $result = mysqli_query($connection, $query);
     return $result->fetch_assoc();
 }
@@ -33,18 +33,18 @@ function addMahasiswa($connection, $username, $password, $level, $nama, $email, 
 
         // Periksa apakah query berhasil dijalankan
         if ($resultMahasiswa) {
-            echo "Data Berhasil Ditambah";
+            return "Data Berhasil Ditambah";
         } else {
-            echo "Data Gagal Ditambah" . mysqli_error($connection);
+            return "Data Gagal Ditambah" . mysqli_error($connection);
         }
     } else {
-        echo "Terjadi kesalahan saat memasukkan data ke tabel login: " . mysqli_error($connection);
+        return "Terjadi kesalahan saat memasukkan data ke tabel login: " . mysqli_error($connection);
     }
 }
 
-function updateMahasiswa($connection, $username, $password, $nama, $email, $no_hp, $id_user) {
+function updateMahasiswa($connection, $username, $password, $nama, $email, $no_hp, $id_mhs) {
     $query = "UPDATE tbl_mahasiswa INNER JOIN login ON tbl_mahasiswa.id_user = login.id_user SET login.username = '$username', 
-    login.password = '$password', tbl_mahasiswa.nama = '$nama', tbl_mahasiswa.email = '$email', tbl_mahasiswa.no_hp = '$no_hp'  WHERE login.id_user = '$id_user'";
+    login.password = '$password', tbl_mahasiswa.nama = '$nama', tbl_mahasiswa.email = '$email', tbl_mahasiswa.no_hp = '$no_hp'  WHERE tbl_mahasiswa.id_mhs = '$id_mhs'";
 
     if (mysqli_query($connection, $query)) {
         return 'Data Berhasil Diubah';
@@ -53,8 +53,8 @@ function updateMahasiswa($connection, $username, $password, $nama, $email, $no_h
     }
 }
 
-function deleteMahasiswa($connection, $id_user) {
-    $query = "DELETE login, tbl_mahasiswa FROM login INNER JOIN tbl_mahasiswa ON login.id_user = tbl_mahasiswa.id_user WHERE login.id_user = '$id_user'";
+function deleteMahasiswa($connection, $id_mhs) {
+    $query = "DELETE login, tbl_mahasiswa FROM login INNER JOIN tbl_mahasiswa ON login.id_user = tbl_mahasiswa.id_user WHERE tbl_mahasiswa.id_mhs = '$id_mhs'";
 
     if (mysqli_query($connection, $query)) {
         return 'Data Berhasil Dihapus';

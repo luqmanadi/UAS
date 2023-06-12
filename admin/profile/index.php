@@ -35,3 +35,36 @@ require_once '../layout/top.php';
 <?php
 require_once '../layout/bottom.php';
 ?>
+
+
+<?php
+
+if (isset($_SESSION['info'])):
+    if ($_SESSION['info']['status'] == 'success') {
+        ?>
+        <script>
+            iziToast.success({
+                title: 'Sukses',
+                message: `<?= $_SESSION['info']['message'] ?>`,
+                position: 'topCenter',
+                timeout: 5000
+            });
+        </script>
+        <?php
+    } else {
+        ?>
+        <script>
+            iziToast.error({
+                title: 'Gagal',
+                message: `<?= $_SESSION['info']['message'] ?>`,
+                timeout: 5000,
+                position: 'topCenter'
+            });
+        </script>
+        <?php
+    }
+
+    unset($_SESSION['info']);
+    $_SESSION['info'] = null;
+endif;
+?>
