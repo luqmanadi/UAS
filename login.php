@@ -4,9 +4,12 @@ require_once 'helper/middleware.php';
 
 if (isLogin()) {
     if (isAdmin()) {
-        header("Location: admin/dashboard/dashboard.php");
+        header("Location: admin/dashboard/index.php");
     } else if (isDosen()) {
-        header("Location: user/dahboard.php");
+        header("Location: user/dosen/index.php");
+    }
+	else if (isMahasiswa()) {
+        header("Location: user/mahasiswa/index.php");
     }
 }
 

@@ -19,11 +19,11 @@ if (isset($_POST['login'])) {
         if ($_SESSION['level'] == 1) {
             header('Location: ../../admin/dashboard/index.php');
         } elseif ($_SESSION['level'] == 2) {
-            header('Location: ../../dosen/dashboard.php');
+            header('Location: ../../user/dosen/index.php');
         } elseif ($_SESSION['level'] == 3) {
-            header('Location: ../../mahasiswa/dashboard.php');
+            header('Location: ../../user/ormawa/index.php');
         } elseif ($_SESSION['level'] == 4) {
-            header('Location: ../../ormawa/dashboard.php');
+            header('Location: ../../user/mahasiswa/index.php');
         }
     } else {
         header('Location: ../../login.php?loginFail=1');
