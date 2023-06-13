@@ -10,12 +10,17 @@ function isAdmin()
     return $_SESSION['level'] == 1;
 }
 
-function isDosenOrmawa()
+function isDosen()
 {
     return $_SESSION['level'] == 2;
 }
 
-function isMahasiswa()
+function isOrmawa()
 {
     return $_SESSION['level'] == 3;
+}
+
+function isMahasiswa()
+{
+    return $_SESSION['level'] == 4;
 }

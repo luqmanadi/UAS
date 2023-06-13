@@ -5,7 +5,7 @@ require_once 'helper/middleware.php';
 if (isLogin()) {
     if (isAdmin()) {
         header("Location: admin/dashboard/dashboard.php");
-    } else if (isDosenOrmawa() or isMahasiswa()) {
+    } else if (isDosen()) {
         header("Location: user/dahboard.php");
     }
 }

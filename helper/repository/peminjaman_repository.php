@@ -36,7 +36,7 @@ function getPeminjaman($connection, $id_peminjaman)
 
 
 function peminjamanDiterima($connection,$id_peminjaman){
-    $query = "UPDATE tbl_peminjaman SET isapprove = '1' WHERE id_peminjaman = '$id_peminjaman'";
+    $query = "UPDATE tbl_peminjaman INNER JOIN tbl_ruangan on SET isapprove = '1' WHERE id_peminjaman = '$id_peminjaman'";
     $result = mysqli_query($connection, $query);
     return $result;
 

@@ -13,7 +13,7 @@ require_once '../layout/top.php';
         <a href="index.php" class="btn btn-primary">Kembali</a>
     </div>
 
-   <!-- Content Row -->
+    <!-- Content Row -->
     <div class="row">
         <div class="col-12">
             <div class="card shadow">
@@ -55,7 +55,8 @@ require_once '../layout/top.php';
 
                             <tr>
                                 <td><label for="no_hp" class="form-label">NO HP</label></td>
-                                <td><input class="form-control" type="number" name="no_hp" id="no_hp" size="20" required>
+                                <td><input class="form-control" type="number" name="no_hp" id="no_hp" size="20"
+                                        required>
                                 </td>
 
                             </tr>
