@@ -18,8 +18,12 @@ if (isset($_POST['login'])) {
         $_SESSION['level'] = $data['level'];
         if ($_SESSION['level'] == 1) {
             header('Location: ../../admin/dashboard/index.php');
-        } elseif ($_SESSION['level'] == 2 or $_SESSION['level'] == 3) {
-            header('Location: ../../user/dashboard.php');
+        } elseif ($_SESSION['level'] == 2) {
+            header('Location: ../../dosen/dashboard.php');
+        } elseif ($_SESSION['level'] == 3) {
+            header('Location: ../../mahasiswa/dashboard.php');
+        } elseif ($_SESSION['level'] == 4) {
+            header('Location: ../../ormawa/dashboard.php');
         }
     } else {
         header('Location: ../../login.php?loginFail=1');
