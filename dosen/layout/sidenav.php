@@ -2,7 +2,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard.php">
         <div class="sidebar-brand-icon">
         <i><img src="img/logo.png" alt="" width="50px" ></i>
         </div>
@@ -14,7 +14,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="<?= str_contains($_SERVER['PHP_SELF'], '/dashboard') ? 'nav-item active' : 'nav-item' ?>">
-        <a class="nav-link" href="../dashboard/index.php">
+        <a class="nav-link" href="dashboard.php">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
@@ -52,8 +52,8 @@
         }else{echo 'collapse';} ?>" aria-labelledby="headingUser" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Menu Profil :</h6>
-                <a class="collapse-item active" href="profile.php">Detail Profil</a>
-                <a class="collapse-item active" href="#">Edit Profil</a>
+                <a class="collapse-item" href="profile.php">Detail Profil</a>
+                <a class="collapse-item" href="#">Edit Profil</a>
             </div>
         </div>
     </li>
