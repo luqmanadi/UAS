@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="sticky-footer bg-white">
+<footer class="sticky-footer bg-white" style=" position : sticky ">
     <div class="container my-auto">
         <div class="copyright text-center my-auto">
             <span>Copyright &copy; FST UIN Walisongo 2023</span>
