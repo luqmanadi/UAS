@@ -1,6 +1,7 @@
 <?php
 require_once '../layout/top.php';
 
+
 $dataDosen = getAllDosen($connection);
 
 
@@ -48,21 +49,21 @@ $dataDosen = getAllDosen($connection);
                                     <?= $index + 1 ?>
                                 </th>
                                 <td>
-                                    <?= $data['id_user'] ?>
+                                    <?= $data['id_dosen'] ?>
                                 </td>
                                 <td>
-                                    <?= $data['level'] ?>
+                                    <?= $data['nama'] ?>
                                 </td>
                                 <td>
                                     <?= $data['email'] ?>
                                 </td>
                                 <td>
-                                    <a class="btn btn-sm btn-warning" href="detail.php?user_dosen=<?= $data['username'] ?>"><i
+                                    <a class="btn btn-sm btn-warning" href="detail.php?id_dosen=<?= $data['id_dosen'] ?>"><i
                                             class="fas fa-info-circle"></i></a>
-                                    <a class="btn btn-sm btn-info" href="edit.php?user_dosen=<?= $data['username'] ?>"><i
+                                    <a class="btn btn-sm btn-info" href="edit.php?id_dosen=<?= $data['id_dosen'] ?>"><i
                                             class="fas fa-edit fa-fw"></i></a>
                                     <a class="btn btn-sm btn-danger mb-md-0 mb-1"
-                                        href="../aksi.php?delete_dosen=<?= $data['username'] ?>"><i
+                                        href="../aksi.php?delete_dosen=<?= $data['id_dosen'] ?>"><i
                                             class="fas fa-trash fa-fw"></i></a>
                                 </td>
                             </tr>

@@ -2,8 +2,8 @@
 
 require_once '../layout/top.php';
 
-$user_dosen = $_GET['user_dosen'];
-$dataDosen = getDosen($connection,$user_dosen);
+$id_dosen = $_GET['id_dosen'];
+$dataDosen = getDosen($connection,$id_dosen);
 
 ?>
 

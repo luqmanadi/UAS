@@ -1,14 +1,14 @@
-<?php 
-    session_start();
-    require_once 'helper/middleware.php';
+<?php
+session_start();
+require_once 'helper/middleware.php';
 
-    if(isLogin()){
-        if(isAdmin()){
-            header("Location: admin/dashboard/dashboard.php");
-        }else if(isDosenOrmawa() or isMahasiswa()){
-            header("Location: user/dahboard.php");
-        }
+if (isLogin()) {
+    if (isAdmin()) {
+        header("Location: admin/dashboard/dashboard.php");
+    } else if (isDosenOrmawa() or isMahasiswa()) {
+        header("Location: user/dahboard.php");
     }
+}
 
 ?>
 
@@ -30,6 +30,8 @@
 
     <!-- CSS Libraries -->
     <link rel="stylesheet" href="assets/modules/bootstrap-social/bootstrap-social.css">
+    <link rel="stylesheet" href="assets/modules/izitoast/css/iziToast.min.css">
+
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
@@ -53,7 +55,8 @@
                             </div>
 
                             <div class="card-body">
-                                <form method="POST" action="helper/auth/cek_login.php" class="needs-validation" novalidate="">
+                                <form method="POST" action="helper/auth/cek_login.php" class="needs-validation"
+                                    novalidate="">
                                     <div class="form-group">
                                         <label for="username">Username</label>
                                         <input id="username" type="text" class="form-control" name="username"
@@ -99,7 +102,25 @@
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
     <script src="assets/js/sb-admin-2.min.js"></script>
+    <script src="assets/modules/izitoast/js/iziToast.min.js"></script>
 
 </body>
 
 </html>
+
+<?php
+
+if (isset($_GET['msg'])):
+    ?>
+    <script>
+        iziToast.error({
+            title: 'Gagal',
+            message: `<?= $_GET['msg'] ?>`,
+            timeout: 5000,
+            position: 'topCenter'
+        });
+    </script>
+    <?php
+
+endif;
+?>

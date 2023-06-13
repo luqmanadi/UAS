@@ -2,6 +2,9 @@
 
 require_once '../layout/top.php';
 
+$id_user = $_SESSION['id_user'];
+$dataAdmin = getAdmin($connection, $id_user);
+
 ?>
 
 <!-- Begin Page Content -->
@@ -9,20 +12,61 @@ require_once '../layout/top.php';
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Data Profile</h1>
+        <h1 class="h3 mb-0 text-gray-800">Data Admin</h1>
+        <a href="../dashboard/index.php" class="btn btn-primary">Kembali</a>
     </div>
 
-    <!-- Content Row -->
     <div class="row">
+        <div class="col-md-12">
+            <div class="card shadow">
+                <div class="card-header">
+                    <div class="d-flex align-items-center">
+                        <h4 class="card-title text-primary font-weight-bold">Detail Profile Admin</h4>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tr>
+                                <td>ID Admin</td>
+                                <td>:</td>
+                                <td>
+                                    <?= $dataAdmin['id_user'] ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Username</td>
+                                <td>:</td>
+                                <td>
+                                    <?= $dataAdmin['username'] ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Password</td>
+                                <td>:</td>
+                                <td>
+                                    <?= $dataAdmin['password'] ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Level / Role</td>
+                                </td>
+                                <td>:</td>
+                                <td>
+                                    <?= $dataAdmin['level'] ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="edit.php?id_user<?=$id_user?>" class="btn btn-info">Edit Data</a>
+                                </td>
+                            </tr>
 
-
-    </div>
-
-    <!-- Content Row -->
-
-    <div class="row">
-
-
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 

@@ -3,14 +3,14 @@
 
 function getAllDosen($connection)
 {
-    $query = "SELECT * FROM tbl_dosen INNER JOIN login on tbl_dosen.id_user = login.id_user";
+    $query = "SELECT * FROM tbl_dosen";
     $result = mysqli_query($connection, $query);
     return $result;
 }
 
-function getDosen($connection, $user_dosen)
+function getDosen($connection, $id_dosen)
 {
-    $query = "SELECT * FROM login INNER JOIN tbl_dosen on login.id_user = tbl_dosen.id_user WHERE username ='$user_dosen'";
+    $query = "SELECT * FROM tbl_dosen INNER JOIN login on tbl_dosen.id_user = login.id_user WHERE id_dosen ='$id_dosen'";
     $result = mysqli_query($connection, $query);
     return $result->fetch_assoc();
 }
@@ -45,10 +45,10 @@ function addDosen($connection, $username, $password, $level, $nama, $email, $no_
     }
 }
 
-function updateDosen($connection, $username, $password, $nama, $email, $no_hp, $user_dosen)
+function updateDosen($connection, $username, $password, $nama, $email, $no_hp, $id_dosen)
 {
     $query = "UPDATE tbl_dosen INNER JOIN login ON tbl_dosen.id_user = login.id_user SET login.username = '$username', 
-    login.password = '$password', tbl_dosen.nama = '$nama', tbl_dosen.email = '$email', tbl_dosen.no_hp = '$no_hp'  WHERE login.username = '$user_dosen'";
+    login.password = '$password', tbl_dosen.nama = '$nama', tbl_dosen.email = '$email', tbl_dosen.no_hp = '$no_hp'  WHERE tbl_dosen.id_dosen = '$id_dosen'";
 
     if (mysqli_query($connection, $query)) {
         return 'Data Berhasil Diubah';
@@ -57,9 +57,9 @@ function updateDosen($connection, $username, $password, $nama, $email, $no_hp, $
     }
 }
 
-function deleteDosen($connection, $user_dosen)
+function deleteDosen($connection, $id_dosen)
 {
-    $query = "DELETE login, tbl_dosen FROM login INNER JOIN tbl_dosen ON login.id_user = tbl_dosen.id_user WHERE login.username = '$user_dosen'";
+    $query = "DELETE login, tbl_dosen FROM login INNER JOIN tbl_dosen ON login.id_user = tbl_dosen.id_user WHERE tbl_dosen.id_dosen = '$id_dosen'";
 
     if (mysqli_query($connection, $query)) {
         return 'Data Berhasil Dihapus';

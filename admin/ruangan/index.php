@@ -11,7 +11,7 @@ $dataRuangan = getAllRuang($connection);
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Daftar Ruangan</h1>
+        <h1 class="h3 mb-0 text-gray-800">Ruangan</h1>
         <a href="create.php" class="btn btn-primary">Tambah Data</a>
     </div>
 
@@ -51,10 +51,16 @@ $dataRuangan = getAllRuang($connection);
                                     <?= $data['id_ruangan']?>
                                 </td>
                                 <td>
-                                    <p class="btn btn-sm btn-success"><?= $data['status'] ?></p>
+                                    <p class="badge rounded-pill text-white <?php if($data['status'] == 'KOSONG') { echo'bg-success';}else{ echo'bg-danger';} ?>"><?= $data['status'] ?></p>
                                 </td>
                                 <td>
-                                    <?= $data['kategori'] ?>
+                                    <?php if($data['kategori'] == 1){
+                                        echo "R--KELAS";
+                                    }elseif($data['kategori'] == 2){
+                                        echo "R--SIDANG";
+                                    }elseif($data['kategori'] == 3){
+                                        echo "R--THETATER";
+                                    } ?>
                                 </td>
                                 <td>
                                     <a class="btn btn-sm btn-warning" href="detail.php?id_ruangan=<?= $data['id_ruangan'] ?>"><i
@@ -62,7 +68,7 @@ $dataRuangan = getAllRuang($connection);
                                     <a class="btn btn-sm btn-info" href="edit.php?id_ruangan=<?= $data['id_ruangan'] ?>"><i
                                             class="fas fa-edit fa-fw"></i></a>
                                     <a class="btn btn-sm btn-danger mb-md-0 mb-1"
-                                        href="../aksi.php?id_ruangan=<?= $data['id_ruangan'] ?>"><i
+                                        href="../aksi.php?delete_ruangan=<?= $data['id_ruangan'] ?>"><i
                                             class="fas fa-trash fa-fw"></i></a>
                                 </td>
                             </tr>

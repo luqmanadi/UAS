@@ -26,7 +26,7 @@
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Mau Keluar Bang?</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true">x</span>
                 </button>
             </div>
             <div class="modal-body">Pilih "Logout" jika ingin keluar.</div>
@@ -37,6 +37,9 @@
         </div>
     </div>
 </div>
+
+
+
 
 <!-- Bootstrap core JavaScript-->
 <script src="../../assets/vendor/jquery/jquery.min.js"></script>

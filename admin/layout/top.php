@@ -7,11 +7,13 @@ require_once '../../helper/repository/mahasiswa_repository.php';
 require_once '../../helper/repository/ruangan_repository.php';
 require_once '../../helper/repository/peminjaman_repository.php';
 require_once '../../helper/repository/ormawa_repository.php';
+require_once '../../helper/repository/admin_repository.php';
 require_once '../../helper/middleware.php';
 
 
 if (!isLogin() || !isAdmin()) {
-    header("Location: ../../login.php");
+    $msg = 'Anda Tidak Berhak Akses Ke Halaman ini';
+    header("Location: ../../login.php?msg=$msg");
 }
 
 
@@ -50,7 +52,7 @@ if (!isLogin() || !isAdmin()) {
 
     <!-- Page Wrapper -->
     <div id="wrapper">
-    <?php 
+        <?php
         require_once 'sidenav.php';
         require_once 'header.php';
-    ?>
+        ?>

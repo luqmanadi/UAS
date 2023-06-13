@@ -10,7 +10,7 @@ function getAllRuang($connection)
 
 function getRuangan($connection, $id_ruangan)
 {
-    $query = "SELECT * FROM tbl_ruangan  WHERE id_ruangan ='$id_ruangan";
+    $query = "SELECT * FROM tbl_ruangan  WHERE id_ruangan ='$id_ruangan'";
     $result = mysqli_query($connection, $query);
     return $result->fetch_assoc();
 }
