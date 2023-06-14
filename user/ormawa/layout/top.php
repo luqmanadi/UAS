@@ -1,19 +1,11 @@
-<?php
-session_start();
+<?php 
+    session_start();
 
-require_once '../../helper/connection.php';
-require_once '../../helper/repository/ormawa_repository.php';
-require_once '../../helper/repository/ruangan_repository.php';
-require_once '../../helper/repository/peminjaman_repository.php';
-require_once '../../helper/middleware.php';
-
-
-if (!isLogin() || !isOrmawa()) {
-    $msg = 'Anda Tidak Berhak Akses Ke Halaman ini';
-    header("Location: ../../login.php?msg=$msg");
-}
-
-
+    require_once '../../helper/connection.php';
+    require_once '../../helper/repository/mahasiswa_repository.php';
+    require_once '../../helper/repository/ruangan_repository.php';
+    require_once '../../helper/repository/peminjaman_repository.php';
+    require_once '../../helper/middleware.php';
 ?>
 
 <!DOCTYPE html>
@@ -26,6 +18,7 @@ if (!isLogin() || !isOrmawa()) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="icon" href="img/logo.png">
 
     <title>BO Room - Dashboard</title>
 
@@ -37,7 +30,7 @@ if (!isLogin() || !isOrmawa()) {
 
     <!-- Custom styles for this template-->
     <link href="../../assets/css/sb-admin-2.min.css" rel="stylesheet">
-	<link href="../../assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="../../assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../assets/modules/izitoast/css/iziToast.min.css">
 
 </head>

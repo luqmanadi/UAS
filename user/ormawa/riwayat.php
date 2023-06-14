@@ -69,7 +69,7 @@
                                     <?= $data['tanggal'] ?>
                                 </td>
                                 <td>
-                                    <?php if ($data['isapprove'] == "0") {
+                                <?php if ($data['isapprove'] == "0") {
                                             ?>
                                             <a href="../aksi.php?isapprove=<?= $data['id_peminjaman'] ?>"
                                                 class="btn btn-info btn-icon-split" data-toggle="modal" data-target="#persetujuanModal">
@@ -108,9 +108,9 @@
                                             <?php
                                         }
                                         ?>
-                                    </td>
-                                </tr>
-                            <?php endforeach ?>
+                                </td>
+                            </tr>
+                        <?php endforeach ?>
                     </tbody>
                 </table>
             </div>

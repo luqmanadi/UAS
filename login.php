@@ -89,15 +89,11 @@ if (isLogin()) {
                                         </button>
                                     </div>
                                 </form>
-
                             </div>
                         </div>
                         <div class="simple-footer">
                             UIN WS
                         </div>
-                        <?php if (isset($_GET['loginFail'])): ?>
-                            <div class="alert alert-danger mt-4" role="alert">Gagal Login</div>
-                        <?php endif ?>
                     </div>
                 </div>
             </div>

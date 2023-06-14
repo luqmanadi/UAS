@@ -2,8 +2,8 @@
 
 require_once 'layout/top.php';
 
-$id_mhs = $_SESSION['id_user'];
-$dataMahasiswa = getMahasiswa($connection, $id_mhs);
+$id_user = $_SESSION['id_user'];
+$dataMahasiswa = getAkun($connection, $id_user);
 
 ?>
 
@@ -12,7 +12,7 @@ $dataMahasiswa = getMahasiswa($connection, $id_mhs);
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Data Mahasiswa</h1>
+        <h1 class="h3 mb-0 text-gray-800">Profile</h1>
         <a href="index.php" class="btn btn-primary">Kembali</a>
     </div>
 
@@ -21,17 +21,24 @@ $dataMahasiswa = getMahasiswa($connection, $id_mhs);
             <div class="card shadow">
                 <div class="card-header">
                     <div class="d-flex align-items-center">
-                        <h4 class="card-title text-primary font-weight-bold">Detail Profile Mahasiswa</h4>
+                        <h4 class="card-title text-primary font-weight-bold">Detail Profile</h4>
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table">
                             <tr>
-                                <td>ID Mahasiswa</td>
+                                <td>ID Anda</td>
                                 <td>:</td>
                                 <td>
                                     <?= $dataMahasiswa['id_user'] ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Nama Lengkap</td>
+                                <td>:</td>
+                                <td>
+                                    <?= $dataMahasiswa['nama'] ?>
                                 </td>
                             </tr>
                             <tr>
@@ -49,16 +56,24 @@ $dataMahasiswa = getMahasiswa($connection, $id_mhs);
                                 </td>
                             </tr>
                             <tr>
-                                <td>Level / Role</td>
+                                <td>Email</td>
                                 </td>
                                 <td>:</td>
                                 <td>
-                                    <?= $dataMahasiswa['level'] ?>
+                                    <?= $dataMahasiswa['email'] ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>NO HP</td>
+                                </td>
+                                <td>:</td>
+                                <td>
+                                    <?= $dataMahasiswa['no_hp'] ?>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <a href="edit.php?id_user<?=$id_user?>" class="btn btn-info">Edit Data</a>
+                                    <a href="edit.php?id_user<?= $id_user ?>" class="btn btn-info">Edit Data</a>
                                 </td>
                             </tr>
 
