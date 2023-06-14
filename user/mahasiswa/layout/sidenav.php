@@ -13,7 +13,7 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="<?= str_contains($_SERVER['PHP_SELF'], '/mahasiswa') ? 'nav-item active' : 'nav-item' ?>">
+    <li class="<?= str_contains($_SERVER['PHP_SELF'], 'index.php') ? 'nav-item active' : 'nav-item' ?>">
         <a class="nav-link" href="index.php">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
