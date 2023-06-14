@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 13 Jun 2023 pada 14.16
+-- Waktu pembuatan: 14 Jun 2023 pada 17.02
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.1.17
 
@@ -41,12 +41,12 @@ CREATE TABLE `login` (
 INSERT INTO `login` (`id_user`, `username`, `password`, `level`) VALUES
 (192100, 'adminterganteng', 'admin123456789', 1),
 (192101, 'DOSEN', 'DOSEN01', 2),
-(192102, 'ormawa', 'ormawa123', 2),
-(192103, 'mahasiswa', 'mahasiswa123', 3),
+(192102, 'ormawa', 'ormawa123', 3),
+(192103, 'mahasiswagaul', 'mahasiswa123', 4),
 (192113, 'nuraini12', '12345678', 2),
-(192117, 'Ica', 'ica123', 3),
-(192120, 'MTK', 'MTK123', 2),
-(192121, 'nimas123', 'nimas567', 3);
+(192117, 'Ica', 'ica123', 4),
+(192120, 'MTK', 'MTK123', 3),
+(192121, 'nimas123', '4\r\n', 3);
 
 -- --------------------------------------------------------
 
@@ -67,7 +67,7 @@ CREATE TABLE `tbl_dosen` (
 --
 
 INSERT INTO `tbl_dosen` (`id_dosen`, `id_user`, `nama`, `email`, `no_hp`) VALUES
-(50100, 192101, 'IKLIL MUSTOFA', 'iklilmustofa12@gmail.com', '087890765432'),
+(50100, 192101, 'IKLIL MUSTOFA MUHAMMAD ASEP', 'iklilmustofa12@gmail.com', '087890765432'),
 (50110, 192113, 'Siti Nuraini', 'siti@gmail.com', '098789678543');
 
 -- --------------------------------------------------------
@@ -125,9 +125,9 @@ CREATE TABLE `tbl_peminjaman` (
   `id_peminjaman` int(11) NOT NULL,
   `id_user` int(15) NOT NULL,
   `id_ruangan` varchar(20) NOT NULL,
-  `waktu` time NOT NULL,
+  `waktu` varchar(20) NOT NULL,
   `keperluan` text NOT NULL,
-  `tanggal` date NOT NULL,
+  `tanggal` varchar(30) NOT NULL,
   `isapprove` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -136,9 +136,16 @@ CREATE TABLE `tbl_peminjaman` (
 --
 
 INSERT INTO `tbl_peminjaman` (`id_peminjaman`, `id_user`, `id_ruangan`, `waktu`, `keperluan`, `tanggal`, `isapprove`) VALUES
-(559080, 192101, 'ISDB 2.8', '08:00:00', 'Ujian Akhir Semester', '2023-06-12', '1'),
-(559081, 192102, 'Theater 1', '12:59:17', 'MABAR', '2023-06-14', '0'),
-(559082, 192101, 'ISDB 1.1', '07:59:17', 'Mahasiswa Sidang', '2023-06-15', '2');
+(559080, 192101, 'ISDB 2.8', '16.10 - 17.50', 'Ujian Akhir Semester', '30 Juni 2023', '3'),
+(559081, 192102, 'Theater 1', '10.20 - 12.00', 'MABAR', '25 Juni 2023', '3'),
+(559082, 192101, 'ISDB 1.1', '07.00 - 08.40', 'Mahasiswa Sidang', '15 Juni 2023', '2'),
+(559083, 192103, 'ISDB 1.1', '14.30 - 16.10', 'NGERJAIN PROJECT', '30 April 2023', '3'),
+(559086, 192102, 'ISDB 2.8', '16.10 - 17.50', 'rapat', '1  Juli 2024', '2'),
+(559087, 192101, 'ISDB 1.1', '08.40 - 10.20', 'rapat', '30 April 2023', '3'),
+(559088, 192103, 'ISDB 1.1', '08.40 - 10.20', 'MAIN MAIN', '27 April 2023', '3'),
+(559089, 192102, 'Theater 1', '12.50 - 14.30', 'presentasi sponsor', '1  Juli 2024', '2'),
+(559090, 192101, 'Theater 1', '08.40 - 10.20', 'GATAU', '27 April 2023', '1'),
+(559091, 192103, 'ISDB 2.8', '10.20 - 12.00', 'NGERJAIN PROJECT', '1  Juli 2024', '0');
 
 -- --------------------------------------------------------
 
@@ -159,8 +166,8 @@ CREATE TABLE `tbl_ruangan` (
 
 INSERT INTO `tbl_ruangan` (`id_ruangan`, `status`, `kapasitas`, `kategori`) VALUES
 ('ISDB 1.1', 'KOSONG', '40 Orang', '1'),
-('ISDB 2.8', 'TERISI', '40 Orang', '1'),
-('Theater 1', 'KOSONG', '200 Orang', '3');
+('ISDB 2.8', 'KOSONG', '40 Orang', '1'),
+('Theater 1', 'TERISI', '200 Orang', '3');
 
 --
 -- Indexes for dumped tables
@@ -239,7 +246,7 @@ ALTER TABLE `tbl_ormawa`
 -- AUTO_INCREMENT untuk tabel `tbl_peminjaman`
 --
 ALTER TABLE `tbl_peminjaman`
-  MODIFY `id_peminjaman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=559083;
+  MODIFY `id_peminjaman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=559092;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
