@@ -71,4 +71,12 @@ function hitungMahasiswa($connection)
     return $total_mahasiswa;
 }
 
+function getAkun($connection, $id_user)
+{
+    $query = "SELECT * FROM tbl_mahasiswa INNER JOIN login on tbl_mahasiswa.id_user = login.id_user WHERE login.id_user = '$id_user'";
+    $result = mysqli_query($connection, $query);
+    return $result->fetch_assoc();
+}
+
+
 ?>
