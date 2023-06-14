@@ -72,7 +72,6 @@ $level = $_SESSION['level']
                                             class="fas fa-info-circle"></i>Detail</a>
 									<a class="btn btn-sm btn-info" href="pengajuan.php?id_ruangan=<?= $data['id_ruangan'] ?>"><i
                                             class="fas fa-edit fa-fw"></i>Ajukan Peminjaman</a>
-                   
                                 </td>
 
                             </tr>
