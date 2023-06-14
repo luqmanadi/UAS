@@ -75,4 +75,11 @@ function hitungOrmawa($connection)
     return $total_ormawa;
 }
 
+function getAkunOrmawa($connection, $id_user)
+{
+    $query = "SELECT * FROM tbl_ormawa INNER JOIN login on tbl_ormawa.id_user = login.id_user WHERE login.id_user = '$id_user'";
+    $result = mysqli_query($connection, $query);
+    return $result->fetch_assoc();
+}
+
 ?>
