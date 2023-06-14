@@ -69,20 +69,48 @@
                                     <?= $data['tanggal'] ?>
                                 </td>
                                 <td>
-                                    <?php 
-                                        if($data['isapprove'] == 1) {
-                                            echo '<p class="btn btn-sm btn-secondary"><i class="fas fa-hand-point-left"></i>  Kembalikan </p>';
-                                        } elseif ($data['isapprove'] == 0) {
-                                            echo '<p class="btn btn-sm btn-warning"><i class="fas fa-stopwatch"></i>  Menunggu </p>';
-                                        } elseif ($data['isapprove'] == 2) {
-                                            echo '<p class="btn btn-sm btn-danger"><i class="fas fa-times-circle"></i>  Ditolak </p>';
-                                        } elseif ($data['isapprove'] == 3) {
-                                            echo '<p class="btn btn-sm btn-success"><i class="fas fa-check-circle"></i>  Selesai </p>';
+                                    <?php if ($data['isapprove'] == "0") {
+                                            ?>
+                                            <a href="../aksi.php?isapprove=<?= $data['id_peminjaman'] ?>"
+                                                class="btn btn-info btn-icon-split" data-toggle="modal" data-target="#persetujuanModal">
+                                                <span class="icon text-white-50">
+                                                    <i class="fas fa-handshake"></i>
+                                                </span>
+                                                <span class="text">MENUNGGU</span>
+                                            </a>
+                                            <?php
+                                        } else if ($data['isapprove'] == "1") {
+                                            ?>
+                                                <a href="#" class="btn btn-secondary btn-icon-split" readonly >
+                                                    <span class="icon text-white-50">
+                                                        <i class="fas fa-thumbs-up"></i>
+                                                    </span>
+                                                    <span class="text">KEMBALIKAN</span>
+                                                </a>
+                                            <?php
+                                        } else if ($data['isapprove'] == "2") {
+                                            ?>
+                                                    <a href="#" class="btn btn-danger btn-icon-split" readonly>
+                                                        <span class="icon text-white-50">
+                                                            <i class="fas fa-thumbs-down"></i>
+                                                        </span>
+                                                        <span class="text">DITOLAK</span>
+                                                    </a>
+                                            <?php
+                                        } else if ($data['isapprove'] == "3") {
+                                            ?>
+                                                    <a href="#" class="btn btn-success btn-icon-split" readonly>
+                                                        <span class="icon text-white-50">
+                                                            <i class="fas fa-thumbs-down"></i>
+                                                        </span>
+                                                        <span class="text">SELESAI</span>
+                                                    </a>
+                                            <?php
                                         }
-                                    ?>
-                                </td>
-                            </tr>
-                        <?php endforeach ?>
+                                        ?>
+                                    </td>
+                                </tr>
+                            <?php endforeach ?>
                     </tbody>
                 </table>
             </div>
