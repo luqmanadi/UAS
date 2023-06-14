@@ -53,7 +53,6 @@ $dataRuangan = getRuangan($connection, $id_ruangan);
                             </tr>
                             <tr>
                                 <td>Kapasitas</td>
-                                <td>:</td>
                                 <td>
                                     <?= $dataRuangan['kapasitas'] ?>
                                 </td>
