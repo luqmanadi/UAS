@@ -24,7 +24,7 @@ if (isset($_POST['login'])) {
             header('Location: ../../user/ormawa/index.php');
         } elseif ($_SESSION['level'] == 4) {
             header('Location: ../../user/mahasiswa/index.php');
-        }
+        } 
     } else {
         header('Location: ../../login.php?loginFail=1');
     }
