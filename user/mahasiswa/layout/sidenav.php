@@ -49,7 +49,7 @@
         </a>
         <div id="collapsePeminjaman" class="<?= str_contains($_SERVER['PHP_SELF'], 'peminjaman.php') ? 'collapse show' : 'collapse' ?>" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="<?= str_contains($_SERVER['PHP_SELF'], 'peminjaman.php') ? 'collapse-item active' : 'collapse-item' ?>" href="../peminjaman.php">List</a>
+                <a class="<?= str_contains($_SERVER['PHP_SELF'], 'peminjaman.php') ? 'collapse-item active' : 'collapse-item' ?>" href="peminjaman.php">List</a>
             </div>
         </div>
     </li>

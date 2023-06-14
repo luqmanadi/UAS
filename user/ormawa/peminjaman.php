@@ -1,96 +1,147 @@
 <?php
+
 require_once 'layout/top.php';
-require_once '../helper/connection.php';
+$dataPeminjaman = getAllPeminjaman($connection);
+
 ?>
 
-<div class="container">
-<section class="section">
-  <div class="section-header d-flex justify-content-between">
-    <h1>Ajukan Peminjaman</h1>
-    <a href="dashboard.php" class="btn btn-light">Kembali</a>
-  </div>
-  <div class="row">
-    <div class="col-12">
-      <div class="card">
-        <div class="card-body">
-          <!-- // Form -->
-          <form action="store.php" method="POST">
-            <table cellpadding="8" class="w-100">
+<!-- Begin Page Content -->
+<div class="container-fluid">
 
-              <tr>
-                <td>Nama</td>
-                <td><input class="form-control" type="text" name="nama" size="50" required></td>
-              </tr>
-
-              <tr>
-                <td>NIP</td>
-                <td><input class="form-control" type="number" name="nim" size="50" required></td>
-              </tr>
-              <tr>
-                <td>No HP</td>
-                <td><input class="form-control" type="number" name="no_hp" id="no_hp" size="50" required></td>
-              </tr>
-              <tr>
-                <td>Jabatan</td>
-                <td colspan="3"><textarea class="form-control" name="alamat" id="alamat" size="50" required></textarea></td>
-              </tr>
-              <tr>
-                <td>Ruangan</td>
-                <td>
-                  <select class="form-control" name="departemen" id="departemen" required>
-                    <option value="">--Pilih Ruangan--</option>
-                    <option value="ruangTeater">Ruang Teater</option>
-                    <option value="ruangSidang">Ruang Sidang</option>
-                    <option value="ISDB1.1">ISDB 1.1</option>
-                    <option value="ISDB1.2">ISDB 1.2</option>
-                    <option value="ISDB1.3">ISDB 1.3</option>
-                    <option value="ISDB1.4">ISDB 1.4</option>
-                    <option value="ISDB1.6">ISDB 1.6</option>
-                    <option value="ISDB1.7">ISDB 1.7</option>
-                    <option value="ISDB1.8">ISDB 1.8</option>
-                    <option value="ISDB2.1">ISDB 2.1</option>
-                    <option value="ISDB2.2">ISDB 2.2</option>
-                    <option value="ISDB2.3">ISDB 2.3</option>
-                    <option value="ISDB2.4">ISDB 2.4</option>
-                    <option value="ISDB2.6">ISDB 2.6</option>
-                    <option value="ISDB2.7">ISDB 2.7</option>
-                    <option value="ISDB2.8">ISDB 2.8</option>
-                    <option value="ISDB3.1">ISDB 3.1</option>
-                    <option value="ISDB3.2">ISDB 3.2</option>
-                    <option value="ISDB3.3">ISDB 3.3</option>
-                    <option value="ISDB3.4">ISDB 3.4</option>
-                    <option value="ISDB3.6">ISDB 3.6</option>
-                    <option value="ISDB3.7">ISDB 3.7</option>
-                    <option value="ISDB3.8">ISDB 3.8</option>
-                    <option value="ISDB3.1">ISDB 4.1</option>
-                    <option value="ISDB3.2">ISDB 4.2</option>
-                    <option value="ISDB3.3">ISDB 4.3</option>
-                    <option value="ISDB3.4">ISDB 4.4</option>
-                    <option value="ISDB3.6">ISDB 4.6</option>
-                    <option value="ISDB3.7">ISDB 4.7</option>
-                    <option value="ISDB3.8">ISDB 4.8</option>
-                  </select>
-                </td>
-              </tr>
-              <tr>```
-                <td>Alasan</td>
-                <td><input class="form-control" type="text" name="alasan" id="alasan" size="50" required></td>
-              </tr>
-              
-              <tr>
-                <td>
-                  <input class="btn btn-primary" type="submit" name="proses" value="Simpan">
-                  <input class="btn btn-danger" type="reset" name="batal" value="Bersihkan"></td>
-              </tr>
-
-            </table>
-          </form>
-        </div>
-      </div>
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Peminjaman</h1>
     </div>
-</section>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Riwayat Peminjaman</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>ID Ruangan</th>
+                            <th>Waktu</th>
+                            <th>Tanggal</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>No</th>
+                            <th>ID Ruangan</th>
+                            <th>Waktu</th>
+                            <th>Tanggal</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <?php foreach ($dataPeminjaman as $index => $data): ?>
+                            <tr>
+                                <th scope="row">
+                                    <?= $index + 1 ?>
+                                </th>
+                                <td>
+                                    <?= $data['id_ruangan'] ?>
+                                </td>
+                                <td>
+                                    <?= $data['waktu'] ?>
+                                </td>
+                                <td>
+                                    <?= $data['tanggal'] ?>
+                                </td>
+
+                                <td>
+                                    <?php if ($data['isapprove'] == "0") {
+                                        ?>
+                                        <a href="../aksi.php?isapprove=<?= $data['id_peminjaman'] ?>"
+                                            class="btn btn-warning btn-icon-split" data-toggle="modal" data-target="#persetujuanModal">
+                                            <span class="icon text-white-50">
+                                                <i class="fas fa-handshake"></i>
+                                            </span>
+                                            <span class="text">MENUNGGU</span>
+                                        </a>
+                                        <?php
+                                    } else if ($data['isapprove'] == "1") {
+                                        ?>
+                                            <a href="#" class="btn btn-success btn-icon-split" readonly >
+                                                <span class="icon text-white-50">
+                                                    <i class="fas fa-thumbs-up"></i>
+                                                </span>
+                                                <span class="text">DITERIMA</span>
+                                            </a>
+                                        <?php
+                                    } else if ($data['isapprove'] == "2") {
+                                        ?>
+                                                <a href="#" class="btn btn-danger btn-icon-split" readonly>
+                                                    <span class="icon text-white-50">
+                                                        <i class="fas fa-thumbs-down"></i>
+                                                    </span>
+                                                    <span class="text">DITOLAK</span>
+                                                </a>
+                                        <?php
+                                    }
+                                    ?>
+                                </td>
+
+                                <td>
+                                    <a class="btn btn-sm btn-info"
+                                        href="detail_peminjaman.php?id_peminjaman=<?= $data['id_peminjaman'] ?>"><i
+                                            class="fas fa-info-circle"></i></a>
+                                </td>
+                            </tr>
+                        <?php endforeach ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
 </div>
+<!-- /.container-fluid -->
+
+</div>
+<!-- End of Main Content -->
 
 <?php
 require_once 'layout/bottom.php';
+?>
+
+<?php
+
+if (isset($_SESSION['info'])):
+    if ($_SESSION['info']['status'] == 'success') {
+        ?>
+        <script>
+            iziToast.success({
+                title: 'Sukses',
+                message: `<?= $_SESSION['info']['message'] ?>`,
+                position: 'topCenter',
+                timeout: 5000
+            });
+        </script>
+        <?php
+    } else {
+        ?>
+        <script>
+            iziToast.error({
+                title: 'Gagal',
+                message: `<?= $_SESSION['info']['message'] ?>`,
+                timeout: 5000,
+                position: 'topCenter'
+            });
+        </script>
+        <?php
+    }
+
+    unset($_SESSION['info']);
+    $_SESSION['info'] = null;
+endif;
 ?>

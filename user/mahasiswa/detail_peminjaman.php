@@ -1,10 +1,8 @@
 <?php
 
 require_once 'layout/top.php';
-
-$id_mhs = $_SESSION['id_user'];
-$dataMahasiswa = getMahasiswa($connection, $id_mhs);
-
+$id_peminjaman = $_GET['id_peminjaman'];
+$dataPeminjaman = getPeminjaman($connection,$id_peminjaman);
 ?>
 
 <!-- Begin Page Content -->
@@ -12,8 +10,8 @@ $dataMahasiswa = getMahasiswa($connection, $id_mhs);
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Data Mahasiswa</h1>
-        <a href="index.php" class="btn btn-primary">Kembali</a>
+        <h1 class="h3 mb-0 text-gray-800">Peminjaman </h1>
+        <a href="peminjaman.php" class="btn btn-primary">Kembali</a>
     </div>
 
     <div class="row">
@@ -21,44 +19,53 @@ $dataMahasiswa = getMahasiswa($connection, $id_mhs);
             <div class="card shadow">
                 <div class="card-header">
                     <div class="d-flex align-items-center">
-                        <h4 class="card-title text-primary font-weight-bold">Detail Profile Mahasiswa</h4>
+                        <h4 class="card-title text-primary font-weight-bold">Detail Peminjaman</h4>
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table">
                             <tr>
-                                <td>ID Mahasiswa</td>
+                                <td>ID Peminjaman</td>
                                 <td>:</td>
                                 <td>
-                                    <?= $dataMahasiswa['id_user'] ?>
+                                    <?= $dataPeminjaman['id_peminjaman'] ?>
                                 </td>
                             </tr>
                             <tr>
-                                <td>Username</td>
+                                <td>Nama Lengkap</td>
                                 <td>:</td>
                                 <td>
-                                    <?= $dataMahasiswa['username'] ?>
+                                    <?= $dataPeminjaman['nama'] ?>
                                 </td>
                             </tr>
                             <tr>
-                                <td>Password</td>
+                                <td>Ruangan</td>
                                 <td>:</td>
                                 <td>
-                                    <?= $dataMahasiswa['password'] ?>
+                                    <?= $dataPeminjaman['id_ruangan'] ?>
                                 </td>
                             </tr>
                             <tr>
-                                <td>Level / Role</td>
-                                </td>
+                                <td>Keperluan</td>
                                 <td>:</td>
                                 <td>
-                                    <?= $dataMahasiswa['level'] ?>
+                                    <?= $dataPeminjaman['keperluan'] ?>
                                 </td>
                             </tr>
                             <tr>
+                                <td>Waktu</td>
+                                <td>:</td>
                                 <td>
-                                    <a href="edit.php?id_user<?=$id_user?>" class="btn btn-info">Edit Data</a>
+                                    <?= $dataPeminjaman['waktu'] ?>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Tanggal</td>
+                                <td>:</td>
+                                <td>
+                                    <?= $dataPeminjaman['tanggal'] ?>
                                 </td>
                             </tr>
 
@@ -78,37 +85,4 @@ $dataMahasiswa = getMahasiswa($connection, $id_mhs);
 
 <?php
 require_once 'layout/bottom.php';
-?>
-
-
-<?php
-
-if (isset($_SESSION['info'])):
-    if ($_SESSION['info']['status'] == 'success') {
-        ?>
-        <script>
-            iziToast.success({
-                title: 'Sukses',
-                message: `<?= $_SESSION['info']['message'] ?>`,
-                position: 'topCenter',
-                timeout: 5000
-            });
-        </script>
-        <?php
-    } else {
-        ?>
-        <script>
-            iziToast.error({
-                title: 'Gagal',
-                message: `<?= $_SESSION['info']['message'] ?>`,
-                timeout: 5000,
-                position: 'topCenter'
-            });
-        </script>
-        <?php
-    }
-
-    unset($_SESSION['info']);
-    $_SESSION['info'] = null;
-endif;
 ?>

@@ -49,5 +49,5 @@
             <!-- End of Main Content -->
 
 <?php 
-    require_once '../layout/bottom.php';
+    require_once 'layout/bottom.php';
 ?>
