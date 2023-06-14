@@ -315,10 +315,11 @@ if (isset($_POST['edit_admin'])) {
 }
 
 
-if (isset($_GET['isAgree'])) {
-    $id_peminjaman= $_GET['isAgree'];
+if (isset($_GET['isAgree']) && isset($_GET['id_peminjaman']) && isset($_GET['id_ruangan'])) {
+    $id_peminjaman= $_GET['id_peminjaman'];
+    $id_ruangan = $_GET['id_ruangan'];
 
-    $msg = peminjamanDiterima($connection, $id_peminjaman);
+    $msg = peminjamanDiterima($connection, $id_peminjaman, $id_ruangan);
 
     if ($msg) {
         $_SESSION['info'] = [

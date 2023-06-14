@@ -63,47 +63,61 @@ $dataPeminjaman = getAllPeminjaman($connection);
                                 </td>
 
                                 <td>
-                                    <?php if ($data['isapprove'] == "0") {
-                                        ?>
-                                        <a href="../aksi.php?isapprove=<?= $data['id_peminjaman'] ?>"
-                                            class="btn btn-warning btn-icon-split" data-toggle="modal" data-target="#persetujuanModal">
+                                    <?php if ($data['isapprove'] == "0") { ?>
+                                        <a href="#" class="btn btn-warning btn-icon-split" data-toggle="modal"
+                                            data-target="#setujuModal<?= $data['id_peminjaman'] ?>">
                                             <span class="icon text-white-50">
                                                 <i class="fas fa-handshake"></i>
                                             </span>
                                             <span class="text">MENUNGGU</span>
                                         </a>
-                                        <?php
-                                    } else if ($data['isapprove'] == "1") {
-                                        ?>
-                                            <a href="#" class="btn btn-success btn-icon-split" readonly >
+                                    <?php } else if ($data['isapprove'] == "1") { ?>
+                                            <a href="#" class="btn btn-success btn-icon-split" readonly>
                                                 <span class="icon text-white-50">
                                                     <i class="fas fa-thumbs-up"></i>
                                                 </span>
                                                 <span class="text">DITERIMA</span>
                                             </a>
-                                        <?php
-                                    } else if ($data['isapprove'] == "2") {
-                                        ?>
+                                    <?php } else if ($data['isapprove'] == "2") { ?>
                                                 <a href="#" class="btn btn-danger btn-icon-split" readonly>
                                                     <span class="icon text-white-50">
                                                         <i class="fas fa-thumbs-down"></i>
                                                     </span>
                                                     <span class="text">DITOLAK</span>
                                                 </a>
-                                        <?php
-                                    }
-                                    ?>
+                                    <?php } ?>
                                 </td>
 
                                 <td>
-                                    <a class="btn btn-sm btn-info"
-                                        href="detail.php?id_peminjaman=<?= $data['id_peminjaman'] ?>"><i
+                                    <a class="btn btn-sm btn-info" href="detail.php?id_peminjaman=<?= $data['id_peminjaman'] ?>"><i
                                             class="fas fa-info-circle"></i></a>
                                     <a class="btn btn-sm btn-danger mb-md-0 mb-1"
                                         href="../aksi.php?delete_peminjaman=<?= $data['id_peminjaman'] ?>"><i
                                             class="fas fa-trash fa-fw"></i></a>
                                 </td>
                             </tr>
+                            <!-- persetujuan Modal-->
+
+                            <div class="modal fade" id="setujuModal<?= $data['id_peminjaman'] ?>" tabindex="-1"
+                                role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Setuju apa Ga nih?</h5>
+                                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">x</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">Pilih "DITERIMA" atau "DITOLAK"</div>
+                                        <div class="modal-footer">
+                                            <a class="btn btn-success"
+                                                href="../aksi.php?isAgree&id_peminjaman=<?= $data['id_peminjaman'] ?>&id_ruangan=<?= $data['id_ruangan'] ?>">Terima</a>
+                                            <a class="btn btn-danger"
+                                                href="../aksi.php?isDisagree=<?= $data['id_peminjaman'] ?>">Tolak</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         <?php endforeach ?>
                     </tbody>
                 </table>
@@ -123,8 +137,7 @@ require_once '../layout/bottom.php';
 ?>
 
 <?php
-
-if (isset($_SESSION['info'])):
+if (isset($_SESSION['info'])) {
     if ($_SESSION['info']['status'] == 'success') {
         ?>
         <script>
@@ -151,25 +164,5 @@ if (isset($_SESSION['info'])):
 
     unset($_SESSION['info']);
     $_SESSION['info'] = null;
-endif;
+}
 ?>
-
-
-<!-- persetujuan Modal-->
-<div class="modal fade" id="persetujuanModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Setuju apa Ga nih?</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">x</span>
-                </button>
-            </div>
-            <div class="modal-body">Pilih "DITERIMA" atau "DITOLAK"</div>
-            <div class="modal-footer">
-                <a class="btn btn-success" href="../aksi.php?isAgree=<?= $data['id_peminjaman'] ?>">Terima</a>
-                <a class="btn btn-danger" href="../aksi.php?isDisagree=<?= $data['id_peminjaman'] ?>">Tolak</a>
-            </div>
-        </div>
-    </div>
-</div>
