@@ -49,12 +49,10 @@ $dataRuangan = getRuangan($connection, $id_ruangan);
                                     } elseif ($dataRuangan['kategori'] == 2) {
                                         echo "R--SIDANG";
                                     } elseif ($dataRuangan['kategori'] == 3) {
-                                        echo "R--THETATER";
                                     } ?>                                </td>
                             </tr>
                             <tr>
                                 <td>Kapasitas</td>
-                                <td>:</td>
                                 <td>
                                     <?= $dataRuangan['kapasitas'] ?>
                                 </td>
