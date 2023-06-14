@@ -45,6 +45,7 @@ $dataPeminjaman = getAllPeminjaman($connection);
                     </tfoot>
                     <tbody>
                         <?php foreach ($dataPeminjaman as $index => $data): ?>
+                            
                             <tr>
                                 <th scope="row">
                                     <?= $index + 1 ?>
