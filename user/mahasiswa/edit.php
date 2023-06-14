@@ -3,7 +3,7 @@
 require_once 'layout/top.php';
 
 $id_user = $_SESSION['id_user'];
-$dataMahasiswa = getAkun($connection, $id_user);
+$dataMahasiswa = getAkunMahasiswa($connection, $id_user);
 ?>
 
 <!-- Begin Page Content -->
