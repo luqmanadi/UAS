@@ -1,6 +1,7 @@
 <?php
     require_once '../dosen/layout/top.php';
     $ruang = getAllRuang($connection);
+    $dataPeminjaman = getAllPeminjaman($connection);
 ?>
 
 
@@ -23,37 +24,37 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>ID Ruangan</th>
+                            <th>ID Peminjaman</th>
+                            <th>Nama</th>
+                            <th>ID User</th>
+                            <th>Waktu</th>
+                            <th>Keperluan</th>
                             <th>Status</th>
-                            <th>Kapasitas</th>
-                            <th>Kategori</th>
-                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
                         <th>No</th>
-                            <th>ID Ruangan</th>
+                            <th>No</th>
+                            <th>ID Peminjaman</th>
+                            <th>Nama</th>
+                            <th>ID User</th>
+                            <th>Waktu</th>
+                            <th>Keperluan</th>
                             <th>Status</th>
-                            <th>Kapasitas</th>
-                            <th>Kategori</th>
-                            <th>Aksi</th>
                         </tr>
                     </tfoot>
                     <tbody>
-                        <?php foreach ($ruang as $index => $data): ?>
+                        <?php foreach ($dataPeminjaman as $index => $data): ?>
                             <tr>
                                 <th scope="row">
                                     <?= $index + 1 ?>
                                 </th>
                                 <td>
-                                    <?= $data['id_ruangan'] ?>
+                                    <?= $dataPeminjaman['id_peminjaman'] ?>
                                 </td>
                                 <td>
-                                    <?= $data['status'] ?>
-                                </td>
-                                <td>
-                                    <?= $data['kapasitas'] ?>
+                                    <?= $dataPeminjaman['kapasitas'] ?>
                                 </td>
                                 <td>
                                     <?php 

@@ -28,28 +28,28 @@
     </div>
     
     <!-- Nav Item - Ruangan Collapse Menu -->
-    <li class="<?= str_contains($_SERVER['PHP_SELF'], 'ruangan.php') ? 'nav-item active' : 'nav-item' ?>">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" aria-expanded="true" aria-controls="collapseRuangan" data-target="#collapseRuangan"  >
-            <i class="fas fa-fw fa-door-open"></i>
+    <li class="<?= str_contains($_SERVER['PHP_SELF'], 'riwayat.php') ? 'nav-item active' : 'nav-item' ?>">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePeminjaman" aria-expanded="true" aria-controls="collapsePeminjaman">
+            <i class="fas fa-fw fa-file"></i>
             <span>Ruangan</span>
         </a>
-        <div  id="collapseRuangan" class="<?= str_contains($_SERVER['PHP_SELF'], 'ruangan.php') ? 'collapse show' : 'collapse' ?>" data-parent="#accordionSidebar" aria-labelledby="headingRuangan" >
+        <div id="collapsePeminjaman" class="<?= str_contains($_SERVER['PHP_SELF'], 'riwayat.php') ? 'collapse show' : 'collapse' ?>" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="<?= str_contains($_SERVER['PHP_SELF'], 'ruangan.php') ? 'collapse-item active' : 'collapse-item' ?>" href="ruangan.php">List</a>
+                <a class="<?= str_contains($_SERVER['PHP_SELF'], 'riwayat.php') ? 'collapse-item active' : 'collapse-item' ?>" href=".peminjaman.php">List</a>
             </div>
         </div>
     </li>
 
 
     <!-- Nav Item - Ruangan Collapse Menu -->
-    <li class="<?= str_contains($_SERVER['PHP_SELF'], 'peminjaman.php') ? 'nav-item active' : 'nav-item' ?>">
+    <li class="<?= str_contains($_SERVER['PHP_SELF'], 'riwayat.php') ? 'nav-item active' : 'nav-item' ?>">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePeminjaman" aria-expanded="true" aria-controls="collapsePeminjaman">
             <i class="fas fa-fw fa-file"></i>
             <span>Riwayat Peminjaman</span>
         </a>
-        <div id="collapsePeminjaman" class="<?= str_contains($_SERVER['PHP_SELF'], 'peminjaman.php') ? 'collapse show' : 'collapse' ?>" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+        <div id="collapsePeminjaman" class="<?= str_contains($_SERVER['PHP_SELF'], 'riwayat.php') ? 'collapse show' : 'collapse' ?>" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="<?= str_contains($_SERVER['PHP_SELF'], 'peminjaman.php') ? 'collapse-item active' : 'collapse-item' ?>" href="../peminjaman.php">List</a>
+                <a class="<?= str_contains($_SERVER['PHP_SELF'], 'riwayat.php') ? 'collapse-item active' : 'collapse-item' ?>" href=".peminjaman.php">List</a>
             </div>
         </div>
     </li>
