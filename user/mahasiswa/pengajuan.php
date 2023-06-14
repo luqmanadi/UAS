@@ -42,13 +42,12 @@ $dataRuangan = getRuangan($connection, $id_ruangan);
                                 <td><label for="waktu" class="form-label">Waktu</label></td>
                                 <td>
 									<select class="form-control" name="waktu" id="waktu" required>
-                                        <option value="7.00">7.00</option>
-                                        <option value="8.40">8.40</option>
-                                        <option value="10.20">10.20</option>
-                                        <option value="12.50">10.20</option>
-										<option value="12.50">12.50</option>
-										<option value="14.30">14.30</option>
-										<option value="16.10">16.10</option>
+                                        <option value="07.00 - 08.40">07.00 - 08.40</option>
+                                        <option value="08.40 - 10.20">08.40 - 10.20</option>
+                                        <option value="10.20 - 12.00">10.20 - 12.00</option>
+                                        <option value="12.50 - 14.30">12.50 - 14.30</option>
+										<option value="14.30 - 16.10">14.30 - 16.10</option>
+										<option value="16.10 - 17.50">16.10 - 17.50</option>
                                     </select>
                                 </td>
 
