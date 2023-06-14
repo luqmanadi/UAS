@@ -41,40 +41,43 @@ $level = $_SESSION['level']
                         </tr>
                     </tfoot>
                     <tbody>
-                        <?php foreach ($dataRuangan as $index => $data): ?>
-                            <tr>
-                                <th scope="row">
-                                    <?= $index + 1 ?>
-                                </th>
-                                <td>
-                                    <?= $data['id_ruangan'] ?>
-                                </td>
-                                <td>
-                                    <p
-                                        class="badge rounded-pill text-white <?php if ($data['status'] == 'KOSONG') {
-                                            echo 'bg-success';
-                                        } else {
-                                            echo 'bg-danger';
-                                        } ?>">
-                                        <?= $data['status'] ?></p>
-                                </td>
-                                <td>
-                                    <?php if ($data['kategori'] == 1) {
-                                        echo "R--KELAS";
-                                    } elseif ($data['kategori'] == 2) {
-                                        echo "R--SIDANG";
-                                    } elseif ($data['kategori'] == 3) {
-                                        echo "R--THETATER";
-                                    } ?>
-                                </td>
-                                <td>
-                                    <a class="btn btn-sm btn-warning" href="detail_ruangan.php?id_ruangan=<?= $data['id_ruangan'] ?>"><i
-                                            class="fas fa-info-circle"></i>Detail</a>
-									<a class="btn btn-sm btn-info" href="pengajuan.php?id_ruangan=<?= $data['id_ruangan'] ?>"><i
-                                            class="fas fa-edit fa-fw"></i>Ajukan Peminjaman</a>
-                                </td>
+                        <?php foreach ($dataRuangan as $index => $data):
+                            if ($data['status'] == 'KOSONG' && $data['kategori'] == '1') {
+                                ?>
+                                <tr>
+                                    <th scope="row">
+                                        <?= $index + 1 ?>
+                                    </th>
+                                    <td>
+                                        <?= $data['id_ruangan'] ?>
+                                    </td>
+                                    <td>
+                                        <p class="badge rounded-pill text-white bg-success"><?= $data['status'] ?></p>
+                                    </td>
+                                    <td>
+                                        <?php if ($data['kategori'] == 1) {
+                                            echo "R--KELAS";
+                                        } elseif ($data['kategori'] == 2) {
+                                            echo "R--SIDANG";
+                                        } elseif ($data['kategori'] == 3) {
+                                            echo "R--THETATER";
+                                        } ?>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-sm btn-warning"
+                                            href="detail_ruangan.php?id_ruangan=<?= $data['id_ruangan'] ?>"><i
+                                                class="fas fa-info-circle"></i>Detail</a>
+                                        <a class="btn btn-sm btn-info"
+                                            href="pengajuan.php?id_ruangan=<?= $data['id_ruangan'] ?>"><i
+                                                class="fas fa-edit fa-fw"></i>Ajukan Peminjaman</a>
+                                    </td>
 
-                            </tr>
+                                </tr>
+                            <?php }
+
+                            ?>
+
+
                         <?php endforeach ?>
                     </tbody>
                 </table>

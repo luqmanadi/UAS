@@ -20,7 +20,7 @@ $dataRuangan = getRuangan($connection, $id_ruangan);
             <div class="card shadow">
                 <div class="card-header">
                     <div class="d-flex align-items-center">
-                        <h4 class="card-title text-primary font-weight-bold">Edit Data Ruangan</h4>
+                        <h4 class="card-title text-primary font-weight-bold">Pengajuan Peminjaman Ruangan</h4>
                     </div>
                 </div>
                 <div class="card-body">
