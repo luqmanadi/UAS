@@ -42,7 +42,7 @@ $level = $_SESSION['level']
                     </tfoot>
                     <tbody>
                         <?php foreach ($dataRuangan as $index => $data):
-                            if ($data['status'] == 'KOSONG' && $data['kategori'] == '1') {
+                            if ($data['status'] == 'KOSONG') {
                                 ?>
                                 <tr>
                                     <th scope="row">
