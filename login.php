@@ -89,7 +89,6 @@ if (isLogin()) {
                                         </button>
                                     </div>
                                 </form>
-
                             </div>
                         </div>
                         <div class="simple-footer">
