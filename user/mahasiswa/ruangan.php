@@ -68,6 +68,12 @@ $level = $_SESSION['level']
                                     } ?>
                                 </td>
                                 <td>
+<<<<<<< HEAD
+                                    <a class="btn btn-sm btn-warning" href="detail_ruangan.php?id_ruangan=<?= $data['id_ruangan'] ?>"><i
+                                            class="fas fa-info-circle"></i>Detail</a>
+									<a class="btn btn-sm btn-info" href="pengajuan.php?id_ruangan=<?= $data['id_ruangan'] ?>"><i
+                                            class="fas fa-edit fa-fw"></i>Ajukan Peminjaman</a>
+=======
                                     <a class="btn btn-sm btn-warning"
                                         href="detail_ruangan.php?id_ruangan=<?= $data['id_ruangan'] ?>"><i
                                             class="fas fa-info-circle"></i></a>
@@ -75,6 +81,7 @@ $level = $_SESSION['level']
                                             class="fas fa-edit fa-fw"></i>Ajukan Peminjaman
                                     </a>
 
+>>>>>>> 969aff3720a53c5d0157b9278bdc90e61d2681fe
                                 </td>
 
                             </tr>

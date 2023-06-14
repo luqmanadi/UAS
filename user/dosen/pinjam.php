@@ -36,27 +36,34 @@ require_once 'layout/top.php';
                             </tr>
 
                             <tr>
-                                <td><label for="username" class="form-label">Id User</label></td>
-                                <td><input class="form-control" type="text" name="id_user" id="id_user" size="50"
+                                <td><label for="id_user" class="form-label">ID User</label></td>
+                                <td><input class="form-control" type="text" name="id_user" id="id_user" size="50" readonly
                                         required></td>
 
                             </tr>
 
                             <tr>
-                                <td><label for="password" class="form-label">Id Ruangan</label></td>
-                                <td><input class="form-control" type="text" name="id_ruangan" id="id_ruangan" size="50"
+                                <td><label for="id_ruangan" class="form-label">ID Ruangan</label></td>
+                                <td><input class="form-control" type="text" name="id_ruangan" id="id_ruangan" size="50" readonly
                                         required></td>
                             </tr>
 
                             <tr>
-                                <td><label for="email" class="form-label">Waktu</label></td>
-                                <td><input class="form-control" type="text" name="waktu" id="waktu" size="50" required>
+                                <td><label for="waktu" class="form-label">Waktu</label></td>
+                                <td><input class="form-control" type="time" name="waktu" id="waktu" size="50" required>
                                 </td>
 
                             </tr>
 
                             <tr>
-                                <td><label for="no_hp" class="form-label">Keperluan</label></td>
+                                <td><label for="tanggal" class="form-label">Tanggal</label></td>
+                                <td><input class="form-control" type="date" name="tanggal" id="tanggal" size="50" required>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+                                <td><label for="keperluan" class="form-label">Keperluan</label></td>
                                 <td><input class="form-control" type="textarea" name="keperluan" id="keperluan" size="50"
                                         required>
                                 </td>

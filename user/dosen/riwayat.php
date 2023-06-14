@@ -1,6 +1,5 @@
 <?php
     require_once '../dosen/layout/top.php';
-    $ruang = getAllRuang($connection);
     $dataPeminjaman = getAllPeminjaman($connection);
 ?>
 
@@ -25,22 +24,23 @@
                         <tr>
                             <th>No</th>
                             <th>ID Peminjaman</th>
-                            <th>Nama</th>
                             <th>ID User</th>
+                            <th>ID Ruangan</th>
                             <th>Waktu</th>
                             <th>Keperluan</th>
+                            <th>Tanggal</th>
                             <th>Status</th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
                         <th>No</th>
-                            <th>No</th>
                             <th>ID Peminjaman</th>
-                            <th>Nama</th>
                             <th>ID User</th>
+                            <th>ID Ruangan</th>
                             <th>Waktu</th>
                             <th>Keperluan</th>
+                            <th>Tanggal</th>
                             <th>Status</th>
                         </tr>
                     </tfoot>
@@ -51,29 +51,35 @@
                                     <?= $index + 1 ?>
                                 </th>
                                 <td>
-                                    <?= $dataPeminjaman['id_peminjaman'] ?>
+                                    <?= $data['id_peminjaman'] ?>
                                 </td>
                                 <td>
-                                    <?= $dataPeminjaman['kapasitas'] ?>
+                                    <?= $data['id_user'] ?>
+                                </td>
+                                <td>
+                                    <?= $data['id_ruangan'] ?>
+                                </td>
+                                <td>
+                                    <?= $data['waktu'] ?>
+                                </td>
+                                <td>
+                                    <?= $data['keperluan'] ?>
+                                </td>
+                                <td>
+                                    <?= $data['tanggal'] ?>
                                 </td>
                                 <td>
                                     <?php 
-                                        if($data['kategori'] == 1) {
-                                            echo 'Ruang ISDB';
-                                        } elseif ($data['kategori'] == 2) {
-                                            echo 'Ruang Sidang';
-                                        } elseif ($data['kategori'] == 3) {
-                                            echo 'Ruang Teater';
+                                        if($data['isapprove'] == 1) {
+                                            echo 'Kembalikan';
+                                        } elseif ($data['isapprove'] == 0) {
+                                            echo 'Menunggu';
+                                        } elseif ($data['isapprove'] == 2) {
+                                            echo 'Ditolak';
+                                        } elseif ($data['isapprove'] == 3) {
+                                            echo 'Selesai';
                                         }
                                     ?>
-                                </td>
-                                <td>
-                                    <a class="btn btn-sm btn-info"
-                                        href="detail.php?id_ruangan=<?= $data['id_ruangan'] ?>"><i
-                                            class="fas fa-info-circle"></i></a>
-                                    <a class="btn btn-sm btn-warning mb-md-0 mb-1"
-                                        href="pinjam.php?=<?= $data['id_ruangan'] ?>"><i
-                                            class="fas fa-paper-plane fa-fw"></i></a>
                                 </td>
                             </tr>
                         <?php endforeach ?>
