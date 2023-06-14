@@ -71,7 +71,7 @@
                                         href="detail.php?id_ruangan=<?= $data['id_ruangan'] ?>"><i
                                             class="fas fa-info-circle"></i></a>
                                     <a class="btn btn-sm btn-warning mb-md-0 mb-1"
-                                        href="pinjam.php?=<?= $data['id_ruangan'] ?>"><i
+                                        href="pinjam.php?id_ruangan=<?= $data['id_ruangan'] ?>"><i
                                             class="fas fa-paper-plane fa-fw"></i></a>
                                 </td>
                             </tr>
