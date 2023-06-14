@@ -1,8 +1,9 @@
 <?php
     require_once 'layout/top.php';
 
-	$ruangan = hitungRuangan($connection);
-    $peminjaman = hitungPeminjaman($connection);
+$id_user = $_SESSION['id_user'];
+$ruangan = hitungRuangan($connection);
+$peminjaman = hitungPeminjamanAkun($connection, $id_user);
 
 ?>
 

@@ -45,7 +45,7 @@ $dataPeminjaman = getAllPeminjaman($connection);
                     </tfoot>
                     <tbody>
                         <?php foreach ($dataPeminjaman as $index => $data): ?>
-                            
+
                             <tr>
                                 <th scope="row">
                                     <?= $index + 1 ?>
@@ -67,7 +67,8 @@ $dataPeminjaman = getAllPeminjaman($connection);
                                     <?php if ($data['isapprove'] == "0") {
                                         ?>
                                         <a href="../aksi.php?isapprove=<?= $data['id_peminjaman'] ?>"
-                                            class="btn btn-warning btn-icon-split" data-toggle="modal" data-target="#persetujuanModal">
+                                            class="btn btn-warning btn-icon-split" data-toggle="modal"
+                                            data-target="#persetujuanModal">
                                             <span class="icon text-white-50">
                                                 <i class="fas fa-handshake"></i>
                                             </span>
@@ -76,7 +77,7 @@ $dataPeminjaman = getAllPeminjaman($connection);
                                         <?php
                                     } else if ($data['isapprove'] == "1") {
                                         ?>
-                                            <a href="#" class="btn btn-success btn-icon-split" readonly >
+                                            <a href="#" class="btn btn-success btn-icon-split" readonly>
                                                 <span class="icon text-white-50">
                                                     <i class="fas fa-thumbs-up"></i>
                                                 </span>
@@ -91,6 +92,15 @@ $dataPeminjaman = getAllPeminjaman($connection);
                                                     </span>
                                                     <span class="text">DITOLAK</span>
                                                 </a>
+                                        <?php
+                                    } else if ($data['isapprove'] == "3") {
+                                        ?>
+                                                    <a href="#" class="btn btn-success btn-icon-split" readonly>
+                                                        <span class="icon text-white-50">
+                                                            <i class="fas fa-thumbs-up"></i>
+                                                        </span>
+                                                        <span class="text">SELESAI</span>
+                                                    </a>
                                         <?php
                                     }
                                     ?>
@@ -157,7 +167,8 @@ endif;
 
 
 <!-- persetujuan Modal-->
-<div class="modal fade" id="persetujuanModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="persetujuanModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">

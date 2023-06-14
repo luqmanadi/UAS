@@ -3,7 +3,7 @@
 require_once 'layout/top.php';
 
 $id_user = $_SESSION['id_user'];
-$dataMahasiswa = getAkunDosen($connection, $id_user);
+$dataDosen = getAkunDosen($connection, $id_user);
 ?>
 
 <!-- Begin Page Content -->
@@ -26,46 +26,46 @@ $dataMahasiswa = getAkunDosen($connection, $id_user);
                 </div>
                 <div class="card-body">
                     <!-- // Form -->
-                    <form action="../aksi.php" method="POST">
+                    <form action="aksi.php" method="POST">
                         <table cellpadding="8" class="w-100">
 
                             <tr>
-                                <td><label for="id_mhs" class="form-label">ID Anda</label></td>
-                                <td><input class="form-control" type="number" name="id_mhs" id="id_mhs" size="20"
-                                        readonly value="<?= $dataMahasiswa['id_user'] ?>"></td>
+                                <td><label for="id_dosen" class="form-label">ID Anda</label></td>
+                                <td><input class="form-control" type="number" name="id_dosen" id="id_dosen" size="20"
+                                        readonly value="<?= $dataDosen['id_dosen'] ?>"></td>
                             </tr>
 
                             <tr>
                                 <td><label for="username" class="form-label">Username</label></td>
                                 <td><input class="form-control" type="text" name="username" id="username" size="20"
-                                        required value="<?= $dataMahasiswa['username'] ?>"></td>
+                                        required value="<?= $dataDosen['username'] ?>"></td>
 
                             </tr>
 
                             <tr>
                                 <td><label for="password" class="form-label">Password</label></td>
                                 <td><input class="form-control" type="text" name="password" id="password" size="20"
-                                        required value="<?= $dataMahasiswa['password'] ?>"></td>
+                                        required value="<?= $dataDosen['password'] ?>"></td>
                             </tr>
 
                             <tr>
                                 <td><label for="nama" class="form-label">Nama Lengkap</label></td>
                                 <td><input class="form-control" type="text" name="nama" id="nama" size="20"
-                                        required value="<?= $dataMahasiswa['nama'] ?>"></td>
+                                        required value="<?= $dataDosen['nama'] ?>"></td>
                             </tr>
                             <tr>
                                 <td><label for="email" class="form-label">Email</label></td>
                                 <td><input class="form-control" type="email" name="email" id="email" size="20"
-                                        required value="<?= $dataMahasiswa['email'] ?>"></td>
+                                        required value="<?= $dataDosen['email'] ?>"></td>
                             </tr>
                             <tr>
                                 <td><label for="no_hp" class="form-label">NO HP</label></td>
                                 <td><input class="form-control" type="text" name="no_hp" id="no_hp" size="20"
-                                        required value="<?= $dataMahasiswa['no_hp'] ?>"></td>
+                                        required value="<?= $dataDosen['no_hp'] ?>"></td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input class="btn btn-success" type="submit" name="edit_mhs" value="Simpan">
+                                    <input class="btn btn-success" type="submit" name="edit_dosen" value="Simpan">
                                 </td>
                             </tr>
 

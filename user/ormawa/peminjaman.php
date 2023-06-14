@@ -1,6 +1,6 @@
 <?php
-    require_once 'layout/top.php';
-    $dataPeminjaman = getAllPeminjaman($connection);
+require_once 'layout/top.php';
+$dataPeminjaman = getAllPeminjaman($connection);
 ?>
 
 
@@ -34,7 +34,7 @@
                     </thead>
                     <tfoot>
                         <tr>
-                        <th>No</th>
+                            <th>No</th>
                             <th>ID Peminjaman</th>
                             <th>ID User</th>
                             <th>ID Ruangan</th>
@@ -45,38 +45,38 @@
                         </tr>
                     </tfoot>
                     <tbody>
-                        <?php foreach ($dataPeminjaman as $index => $data): 
-                            if($_SESSION['id_user'] == $data['id_user']) :
-                            
-                            ?>
-                            
-                            <tr>
-                                <th scope="row">
-                                    <?= $index + 1 ?>
-                                </th>
-                                <td>
-                                    <?= $data['id_peminjaman'] ?>
-                                </td>
-                                <td>
-                                    <?= $data['id_user'] ?>
-                                </td>
-                                <td>
-                                    <?= $data['id_ruangan'] ?>
-                                </td>
-                                <td>
-                                    <?= $data['waktu'] ?>
-                                </td>
-                                <td>
-                                    <?= $data['keperluan'] ?>
-                                </td>
-                                <td>
-                                    <?= $data['tanggal'] ?>
-                                </td>
-                                <td>
-                                <?php if ($data['isapprove'] == "0") {
+                        <?php foreach ($dataPeminjaman as $index => $data):
+                            if ($_SESSION['id_user'] == $data['id_user']):
+
+                                ?>
+
+                                <tr>
+                                    <th scope="row">
+                                        <?= $index + 1 ?>
+                                    </th>
+                                    <td>
+                                        <?= $data['id_peminjaman'] ?>
+                                    </td>
+                                    <td>
+                                        <?= $data['id_user'] ?>
+                                    </td>
+                                    <td>
+                                        <?= $data['id_ruangan'] ?>
+                                    </td>
+                                    <td>
+                                        <?= $data['waktu'] ?>
+                                    </td>
+                                    <td>
+                                        <?= $data['keperluan'] ?>
+                                    </td>
+                                    <td>
+                                        <?= $data['tanggal'] ?>
+                                    </td>
+                                    <td>
+                                        <?php if ($data['isapprove'] == "0") {
                                             ?>
-                                            <a href="../aksi.php?isapprove=<?= $data['id_peminjaman'] ?>"
-                                                class="btn btn-info btn-icon-split" data-toggle="modal" data-target="#persetujuanModal">
+                                            <a href="#" class="btn btn-info btn-icon-split" data-toggle="modal"
+                                                data-target="#persetujuanModal" readonly>
                                                 <span class="icon text-white-50">
                                                     <i class="fas fa-handshake"></i>
                                                 </span>
@@ -85,9 +85,10 @@
                                             <?php
                                         } else if ($data['isapprove'] == "1") {
                                             ?>
-                                                <a href="#" class="btn btn-secondary btn-icon-split" readonly >
+                                                <a href="aksi.php?pengembalian=<?= $data['id_peminjaman'] ?>"
+                                                    class="btn btn-secondary btn-icon-split">
                                                     <span class="icon text-white-50">
-                                                        <i class="fas fa-thumbs-up"></i>
+                                                        <i class="fas fa-running"></i>
                                                     </span>
                                                     <span class="text">KEMBALIKAN</span>
                                                 </a>
@@ -103,17 +104,17 @@
                                             <?php
                                         } else if ($data['isapprove'] == "3") {
                                             ?>
-                                                    <a href="#" class="btn btn-success btn-icon-split" readonly>
-                                                        <span class="icon text-white-50">
-                                                            <i class="fas fa-thumbs-down"></i>
-                                                        </span>
-                                                        <span class="text">SELESAI</span>
-                                                    </a>
+                                                        <a href="#" class="btn btn-success btn-icon-split" readonly>
+                                                            <span class="icon text-white-50">
+                                                                <i class="fas fa-thumbs-up"></i>
+                                                            </span>
+                                                            <span class="text">SELESAI</span>
+                                                        </a>
                                             <?php
                                         }
                                         ?>
-                                </td>
-                            </tr>
+                                    </td>
+                                </tr>
                             <?php endif ?>
                         <?php endforeach ?>
                     </tbody>
@@ -135,5 +136,37 @@
 
 
 <?php
-    require_once 'layout/bottom.php';
+require_once 'layout/bottom.php';
+?>
+
+<?php
+
+if (isset($_SESSION['info'])):
+    if ($_SESSION['info']['status'] == 'success') {
+        ?>
+        <script>
+            iziToast.success({
+                title: 'Sukses',
+                message: `<?= $_SESSION['info']['message'] ?>`,
+                position: 'topCenter',
+                timeout: 5000
+            });
+        </script>
+        <?php
+    } else {
+        ?>
+        <script>
+            iziToast.error({
+                title: 'Gagal',
+                message: `<?= $_SESSION['info']['message'] ?>`,
+                timeout: 5000,
+                position: 'topCenter'
+            });
+        </script>
+        <?php
+    }
+
+    unset($_SESSION['info']);
+    $_SESSION['info'] = null;
+endif;
 ?>

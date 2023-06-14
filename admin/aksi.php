@@ -355,4 +355,24 @@ if (isset($_GET['isDisagree'])) {
     }
 }
 
+if (isset($_GET['delete_peminjaman'])) {
+    $id_peminjaman = $_GET['delete_peminjaman'];
+
+    $msg = deletePeminjaman($connection, $id_peminjaman);
+
+    if ($msg) {
+        $_SESSION['info'] = [
+            'status' => 'success',
+            'message' => 'Berhasil menghapus data'
+        ];
+        header('Location: peminjaman/index.php');
+    } else {
+        $_SESSION['info'] = [
+            'status' => 'failed',
+            'message' => mysqli_error($connection)
+        ];
+        header('Location: peminjaman/index.php');
+    }
+}
+
 ?>

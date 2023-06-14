@@ -127,5 +127,3 @@ if (isset($_SESSION['info'])):
     $_SESSION['info'] = null;
 endif;
 ?>
-
-<!-- peminjaman Modal-->

@@ -26,13 +26,13 @@ $dataMahasiswa = getAkunMahasiswa($connection, $id_user);
                 </div>
                 <div class="card-body">
                     <!-- // Form -->
-                    <form action="../aksi.php" method="POST">
+                    <form action="aksi.php" method="POST">
                         <table cellpadding="8" class="w-100">
 
                             <tr>
                                 <td><label for="id_mhs" class="form-label">ID Anda</label></td>
                                 <td><input class="form-control" type="number" name="id_mhs" id="id_mhs" size="20"
-                                        readonly value="<?= $dataMahasiswa['id_user'] ?>"></td>
+                                        readonly value="<?= $dataMahasiswa['id_mhs'] ?>"></td>
                             </tr>
 
                             <tr>

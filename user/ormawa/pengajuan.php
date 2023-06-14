@@ -55,7 +55,7 @@ $dataRuangan = getRuangan($connection, $id_ruangan);
                             </tr>
 							<tr>
 								<td><label for="tanggal" class="form-label">Tanggal</label></td>
-                                <td><input class="form-control" type="date" name="tanggal" id="tanggal" size="20" required value="<?= date('Y-m-d') ?>"></td>
+                                <td><input class="form-control" type="text" name="tanggal" id="tanggal" size="20" required></td>
                             </tr>
                             <tr>
                                 <td><label for="keperluan" class="form-label">Keperluan</label></td>

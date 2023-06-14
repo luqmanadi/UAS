@@ -3,7 +3,7 @@
 require_once 'layout/top.php';
 
 $id_user = $_SESSION['id_user'];
-$dataMahasiswa = getAkunDosen($connection, $id_user);
+$dataDosen = getAkunDosen($connection, $id_user);
 
 ?>
 
@@ -31,28 +31,28 @@ $dataMahasiswa = getAkunDosen($connection, $id_user);
                                 <td>ID Anda</td>
                                 <td>:</td>
                                 <td>
-                                    <?= $dataMahasiswa['id_user'] ?>
+                                    <?= $dataDosen['id_dosen'] ?>
                                 </td>
                             </tr>
                             <tr>
                                 <td>Nama Lengkap</td>
                                 <td>:</td>
                                 <td>
-                                    <?= $dataMahasiswa['nama'] ?>
+                                    <?= $dataDosen['nama'] ?>
                                 </td>
                             </tr>
                             <tr>
                                 <td>Username</td>
                                 <td>:</td>
                                 <td>
-                                    <?= $dataMahasiswa['username'] ?>
+                                    <?= $dataDosen['username'] ?>
                                 </td>
                             </tr>
                             <tr>
                                 <td>Password</td>
                                 <td>:</td>
                                 <td>
-                                    <?= $dataMahasiswa['password'] ?>
+                                    <?= $dataDosen['password'] ?>
                                 </td>
                             </tr>
                             <tr>
@@ -60,7 +60,7 @@ $dataMahasiswa = getAkunDosen($connection, $id_user);
                                 </td>
                                 <td>:</td>
                                 <td>
-                                    <?= $dataMahasiswa['email'] ?>
+                                    <?= $dataDosen['email'] ?>
                                 </td>
                             </tr>
                             <tr>
@@ -68,7 +68,7 @@ $dataMahasiswa = getAkunDosen($connection, $id_user);
                                 </td>
                                 <td>:</td>
                                 <td>
-                                    <?= $dataMahasiswa['no_hp'] ?>
+                                    <?= $dataDosen['no_hp'] ?>
                                 </td>
                             </tr>
                             <tr>
@@ -76,7 +76,6 @@ $dataMahasiswa = getAkunDosen($connection, $id_user);
                                     <a href="edit.php?id_user<?= $id_user ?>" class="btn btn-info">Edit Data</a>
                                 </td>
                             </tr>
-
                         </table>
                     </div>
                 </div>
