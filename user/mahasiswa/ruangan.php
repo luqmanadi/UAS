@@ -71,8 +71,7 @@ $level = $_SESSION['level']
                                     <a class="btn btn-sm btn-warning"
                                         href="detail_ruangan.php?id_ruangan=<?= $data['id_ruangan'] ?>"><i
                                             class="fas fa-info-circle"></i></a>
-                                    <a class="btn btn-sm btn-info" data-toggle="modal"
-                                        data-target="#modal<?= $data['id_ruangan']; ?>" href="#"><i
+                                    <a class="btn btn-sm btn-info"  href="../aksi.php?pinjam=<?= $data['id_ruangan']?>"><i
                                             class="fas fa-edit fa-fw"></i>Ajukan Peminjaman
                                     </a>
 
