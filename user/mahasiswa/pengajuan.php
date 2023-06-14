@@ -36,12 +36,13 @@ $dataRuangan = getRuangan($connection, $id_ruangan);
                             </tr>
 							<tr>
                                 <td><label for="id_user" class="form-label">ID User</label></td>
-                                <td><input class="form-control" type="text" name="id_user" id="id_user" size="20" required </td>
+                                <td><input class="form-control" type="text" name="id_user" id="id_user" size="20" readonly value="<?= $_SESSION['id_user'] ?>"> </td>
                             </tr>
                             <tr>
                                 <td><label for="waktu" class="form-label">Waktu</label></td>
                                 <td>
 									<select class="form-control" name="waktu" id="waktu" required>
+                                        <option value="">--PILIH--</option>
                                         <option value="07.00 - 08.40">07.00 - 08.40</option>
                                         <option value="08.40 - 10.20">08.40 - 10.20</option>
                                         <option value="10.20 - 12.00">10.20 - 12.00</option>
@@ -54,11 +55,11 @@ $dataRuangan = getRuangan($connection, $id_ruangan);
                             </tr>
 							<tr>
 								<td><label for="tanggal" class="form-label">Tanggal</label></td>
-                                <td><input class="form-control" type="date" name="tanggal" id="tanggal" size="20" required </td>
-							</tr>
-							<tr>
+                                <td><input class="form-control" type="date" name="tanggal" id="tanggal" size="20" required value="<?= date('Y-m-d') ?>"></td>
+                            </tr>
+                            <tr>
                                 <td><label for="keperluan" class="form-label">Keperluan</label></td>
-                                <td><input class="form-control" type="text" name="keperluan" id="keperluan" size="20" required </td>
+                                <td><input class="form-control" type="text" name="keperluan" id="keperluan" size="20" required> </td>
                             </tr>
                             <tr>
                                 <td>
