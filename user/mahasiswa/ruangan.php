@@ -75,36 +75,6 @@ $level = $_SESSION['level']
                                         data-target="#modal<?= $data['id_ruangan']; ?>" href="#"><i
                                             class="fas fa-edit fa-fw"></i>Ajukan Peminjaman
                                     </a>
-                                    <div class="modal fade" id="modal <?= $data['id_ruangan']; ?>" tabindex="-1"
-                                        role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Setuju apa Ga nih?</h5>
-                                                    <button class="close" type="button" data-dismiss="modal"
-                                                        aria-label="Close">
-                                                        <span aria-hidden="true">x</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form action="../aksi.php" method="POST">
-                                                        <table cellpadding="8" class="w-100">
-
-                                                            <div>
-                                                                <label for="id_ruangan" class="form-label">ID
-                                                                    Ruangan</label>
-                                                                <input class="form-control" type="text" name="id_ruangan"
-                                                                    id="id_ruangan" size="20" readonly
-                                                                    value="<?= $data['id_ruangan'] ?>"></label>
-                                                            </div>
-
-
-                                                        </table>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
 
                                 </td>
 
