@@ -1,5 +1,5 @@
 <?php
-    require_once '../dosen/layout/top.php';
+    require_once 'layout/top.php';
     $dataPeminjaman = getAllPeminjaman($connection);
 ?>
 
@@ -45,7 +45,11 @@
                         </tr>
                     </tfoot>
                     <tbody>
-                        <?php foreach ($dataPeminjaman as $index => $data): ?>
+                        <?php foreach ($dataPeminjaman as $index => $data): 
+                            if($_SESSION['id_user'] == $data['id_user']) :
+                            
+                            ?>
+                            
                             <tr>
                                 <th scope="row">
                                     <?= $index + 1 ?>
@@ -110,6 +114,7 @@
                                         ?>
                                 </td>
                             </tr>
+                            <?php endif ?>
                         <?php endforeach ?>
                     </tbody>
                 </table>
@@ -130,5 +135,5 @@
 
 
 <?php
-    require_once '../dosen/layout/bottom.php';
+    require_once 'layout/bottom.php';
 ?>

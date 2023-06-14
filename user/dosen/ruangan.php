@@ -42,7 +42,7 @@ $level = $_SESSION['level']
                     </tfoot>
                     <tbody>
                         <?php foreach ($dataRuangan as $index => $data):
-                            if ($data['status'] == 'KOSONG') {
+                            if ($data['status'] == 'KOSONG' && $data['kategori'] == '1') {
                                 ?>
                                 <tr>
                                     <th scope="row">
@@ -65,10 +65,10 @@ $level = $_SESSION['level']
                                     </td>
                                     <td>
                                         <a class="btn btn-sm btn-warning"
-                                            href="detail.php?id_ruangan=<?= $data['id_ruangan'] ?>"><i
+                                            href="detail_ruangan.php?id_ruangan=<?= $data['id_ruangan'] ?>"><i
                                                 class="fas fa-info-circle"></i>Detail</a>
                                         <a class="btn btn-sm btn-info"
-                                            href="pinjam.php?id_ruangan=<?= $data['id_ruangan'] ?>"><i
+                                            href="pengajuan.php?id_ruangan=<?= $data['id_ruangan'] ?>"><i
                                                 class="fas fa-edit fa-fw"></i>Ajukan Peminjaman</a>
                                     </td>
 

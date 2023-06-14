@@ -3,11 +3,7 @@
 require_once 'layout/top.php';
 
 $id_user = $_SESSION['id_user'];
-<<<<<<< HEAD
-$dataDosen = getDosen($connection, $id_user);
-=======
-$dataDosen = getAkun($connection, $id_user);
->>>>>>> dbf35eae6cd9f7a30e3ff25dde3bb533956e5718
+$dataMahasiswa = getAkunDosen($connection, $id_user);
 
 ?>
 
@@ -35,36 +31,28 @@ $dataDosen = getAkun($connection, $id_user);
                                 <td>ID Anda</td>
                                 <td>:</td>
                                 <td>
-<<<<<<< HEAD
-                                    <?= $dataDosen['id_user'] ?>
-=======
-                                <?= $dataDosen['id_user'] ?>
->>>>>>> dbf35eae6cd9f7a30e3ff25dde3bb533956e5718
+                                    <?= $dataMahasiswa['id_user'] ?>
                                 </td>
                             </tr>
                             <tr>
                                 <td>Nama Lengkap</td>
                                 <td>:</td>
                                 <td>
-                                    <?= $dataDosen['nama'] ?>
+                                    <?= $dataMahasiswa['nama'] ?>
                                 </td>
                             </tr>
                             <tr>
                                 <td>Username</td>
                                 <td>:</td>
                                 <td>
-                                    <?= $dataDosen['username'] ?>
+                                    <?= $dataMahasiswa['username'] ?>
                                 </td>
                             </tr>
                             <tr>
                                 <td>Password</td>
                                 <td>:</td>
                                 <td>
-<<<<<<< HEAD
-                                    <?= $dataDosen['password'] ?>
-=======
-                                    <?= $dataDose['password'] ?>
->>>>>>> dbf35eae6cd9f7a30e3ff25dde3bb533956e5718
+                                    <?= $dataMahasiswa['password'] ?>
                                 </td>
                             </tr>
                             <tr>
@@ -72,7 +60,7 @@ $dataDosen = getAkun($connection, $id_user);
                                 </td>
                                 <td>:</td>
                                 <td>
-                                    <?= $dataDosen['email'] ?>
+                                    <?= $dataMahasiswa['email'] ?>
                                 </td>
                             </tr>
                             <tr>
@@ -80,11 +68,7 @@ $dataDosen = getAkun($connection, $id_user);
                                 </td>
                                 <td>:</td>
                                 <td>
-<<<<<<< HEAD
-                                    <?= $dataDosen['no_hp'] ?>
-=======
-                                    <?= $dataDose['no_hp'] ?>
->>>>>>> dbf35eae6cd9f7a30e3ff25dde3bb533956e5718
+                                    <?= $dataMahasiswa['no_hp'] ?>
                                 </td>
                             </tr>
                             <tr>

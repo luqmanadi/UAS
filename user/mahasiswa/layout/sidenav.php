@@ -44,7 +44,7 @@
     <!-- Nav Item - Ruangan Collapse Menu -->
     <li class="<?= str_contains($_SERVER['PHP_SELF'], 'peminjaman.php') ? 'nav-item active' : 'nav-item' ?>">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePeminjaman" aria-expanded="true" aria-controls="collapsePeminjaman">
-            <i class="fas fa-fw fa-file"></i>
+            <i class="fas fa-fw fa-list"></i>
             <span>Riwayat Peminjaman</span>
         </a>
         <div id="collapsePeminjaman" class="<?= str_contains($_SERVER['PHP_SELF'], 'peminjaman.php') ? 'collapse show' : 'collapse' ?>" aria-labelledby="headingPages" data-parent="#accordionSidebar">

@@ -1,8 +1,9 @@
 <?php
 
 require_once 'layout/top.php';
-$id_ruangan= $_GET['id_ruangan'];
-$ruang = getRuangan($connection, $id_ruangan)
+$id_ruangan = $_GET['id_ruangan'];
+$dataRuangan = getRuangan($connection, $id_ruangan);
+
 ?>
 
 <!-- Begin Page Content -->
@@ -12,7 +13,6 @@ $ruang = getRuangan($connection, $id_ruangan)
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Ruangan</h1>
         <a href="ruangan.php" class="btn btn-primary">Kembali</a>
-
     </div>
 
     <div class="row">
@@ -20,7 +20,7 @@ $ruang = getRuangan($connection, $id_ruangan)
             <div class="card shadow">
                 <div class="card-header">
                     <div class="d-flex align-items-center">
-                        <h4 class="card-title text-primary font-weight-bold">Detail Informasi Ruangan</h4>
+                        <h4 class="card-title text-primary font-weight-bold">Detail Ruangan</h4>
                     </div>
                 </div>
                 <div class="card-body">
@@ -30,31 +30,35 @@ $ruang = getRuangan($connection, $id_ruangan)
                                 <td>ID Ruangan</td>
                                 <td>:</td>
                                 <td>
-                                    <?= $ruang['id_ruangan'] ?>
+                                    <?= $dataRuangan['id_ruangan'] ?>
                                 </td>
                             </tr>
                             <tr>
                                 <td>Status</td>
                                 <td>:</td>
                                 <td>
-                                    <?= $ruang['status'] ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Kapasitas</td>
-                                <td>:</td>
-                                <td>
-                                    <?= $ruang['kapasitas'] ?>
+                                    <?= $dataRuangan['status'] ?>
                                 </td>
                             </tr>
                             <tr>
                                 <td>Kategori</td>
                                 <td>:</td>
                                 <td>
-                                    <?= $ruang['kategori'] ?>
+                                    <?php if ($dataRuangan['kategori'] == 1) {
+                                        echo "R--KELAS";
+                                    } elseif ($dataRuangan['kategori'] == 2) {
+                                        echo "R--SIDANG";
+                                    } elseif ($dataRuangan['kategori'] == 3) {
+                                        echo "R--THETATER";
+                                    } ?>                                </td>
+                            </tr>
+                            <tr>
+                                <td>Kapasitas</td>
+                                <td>:</td>
+                                <td>
+                                    <?= $dataRuangan['kapasitas'] ?>
                                 </td>
                             </tr>
-    
                         </table>
                     </div>
                 </div>
