@@ -4,7 +4,7 @@ require_once 'layout/top.php';
 $dataRuangan = getAllRuang($connection);
 $level = $_SESSION['level']
 
-?>
+    ?>
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
@@ -47,53 +47,44 @@ $level = $_SESSION['level']
                                     <?= $index + 1 ?>
                                 </th>
                                 <td>
-                                    <?= $data['id_ruangan']?>
+                                    <?= $data['id_ruangan'] ?>
                                 </td>
                                 <td>
-                                    <p class="badge rounded-pill text-white <?php if($data['status'] == 'KOSONG') { echo'bg-success';}else{ echo'bg-danger';} ?>"><?= $data['status'] ?></p>
+                                    <p
+                                        class="badge rounded-pill text-white <?php if ($data['status'] == 'KOSONG') {
+                                            echo 'bg-success';
+                                        } else {
+                                            echo 'bg-danger';
+                                        } ?>">
+                                        <?= $data['status'] ?></p>
                                 </td>
                                 <td>
-                                    <?php if($data['kategori'] == 1){
+                                    <?php if ($data['kategori'] == 1) {
                                         echo "R--KELAS";
-                                    }elseif($data['kategori'] == 2){
+                                    } elseif ($data['kategori'] == 2) {
                                         echo "R--SIDANG";
-                                    }elseif($data['kategori'] == 3){
+                                    } elseif ($data['kategori'] == 3) {
                                         echo "R--THETATER";
                                     } ?>
                                 </td>
                                 <td>
+<<<<<<< HEAD
                                     <a class="btn btn-sm btn-warning" href="detail_ruangan.php?id_ruangan=<?= $data['id_ruangan'] ?>"><i
+                                            class="fas fa-info-circle"></i>Detail</a>
+									<a class="btn btn-sm btn-info" href="pengajuan.php?id_ruangan=<?= $data['id_ruangan'] ?>"><i
+                                            class="fas fa-edit fa-fw"></i>Ajukan Peminjaman</a>
+=======
+                                    <a class="btn btn-sm btn-warning"
+                                        href="detail_ruangan.php?id_ruangan=<?= $data['id_ruangan'] ?>"><i
                                             class="fas fa-info-circle"></i></a>
-									<a class="btn btn-sm btn-info" data-toggle="modal" data-target="#modal <?php echo $data['id_ruangan']; ?>" href="#"><i
+                                    <a class="btn btn-sm btn-info" data-toggle="modal"
+                                        data-target="#modal<?= $data['id_ruangan']; ?>" href="#"><i
                                             class="fas fa-edit fa-fw"></i>Ajukan Peminjaman
-									</a>
-									<div class="modal fade" id="modal <?php echo $data['id_ruangan']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Setuju apa Ga nih?</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">x</span>
-                </button>
-            </div>
-            <div class="modal-body">
-				<form action="../aksi.php" method="POST">
-				<table cellpadding="8" class="w-100">
+                                    </a>
 
-                            <div>
-								<label for="id_ruangan" class="form-label">ID Ruangan</label>
-                                <input class="form-control" type="text" name="id_ruangan" id="id_ruangan" size="20" readonly value="<?= $data['id_ruangan'] ?>"></label>
-                            </div>
-                  
-
-                        </table>
-				</form>
-			</div>
-        </div>
-    </div>
-</div>
+>>>>>>> 969aff3720a53c5d0157b9278bdc90e61d2681fe
                                 </td>
-								
+
                             </tr>
                         <?php endforeach ?>
                     </tbody>

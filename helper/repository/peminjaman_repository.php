@@ -35,7 +35,8 @@ function getPeminjaman($connection, $id_peminjaman)
 } 
 
 
-function peminjamanDiterima($connection,$id_peminjaman){
+function peminjamanDiterima($connection,$id_peminjaman)
+{
     $query = "UPDATE tbl_peminjaman INNER JOIN tbl_ruangan on tbl_peminjaman.id_ruangan = tbl_ruangan.id_ruangan SET isapprove = '1' status = 'TERISI' WHERE id_peminjaman = '$id_peminjaman'";
     $result = mysqli_query($connection, $query);
     return $result;
@@ -51,5 +52,19 @@ function peminjamanDitolak($connection, $id_peminjaman)
 }
 
 
+function pengajuanPeminjaman($connection, $id_user, $id_ruangan, $waktu, $tanggal, $keperluan)
+{
+    $query = "INSERT INTO tbl_peminjaman(id_user, id_ruangan, waktu, tanggal, keperluan) VALUES ($id_user, '$id_ruangan', '$waktu', '$tanggal', '$keperluan', '0') ";
+    $result = mysqli_query($connection,$query);
+    return $result;
+}
+
+
+function pengembalianPeminjaman($connection, $id_peminjaman)
+{
+    $query = "UPDATE tbl_peminjaman INNER JOIN tbl_ruangan on tbl_peminjaman.id_ruangan = tbl_ruangan.id_ruangan SET isapprove = '3' status = 'KOSONG' WHERE id_peminjaman = '$id_peminjaman'";
+    $result = mysqli_query($connection,$query);
+    return $result;
+}
 
 ?>

@@ -7,6 +7,8 @@ if (isLogin()) {
         header("Location: admin/dashboard/index.php");
     } else if (isDosen()) {
         header("Location: user/dosen/index.php");
+    } else if (isOrmawa()) {
+        header("Location: user/ormawa/index.php");
     }
 	else if (isMahasiswa()) {
         header("Location: user/mahasiswa/index.php");
