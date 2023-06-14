@@ -1,6 +1,8 @@
 <?php
 
 require_once 'layout/top.php';
+$id_ruangan = $_GET['id_ruangan'];
+$dataRuangan = getRuangan($connection, $id_ruangan);
 
 
 ?>
@@ -11,7 +13,7 @@ require_once 'layout/top.php';
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Peminjaman Ruangan</h1>
-        <a href="index.php" class="btn btn-primary">Kembali</a>
+        <a href="ruangan.php" class="btn btn-primary">Kembali</a>
 
     </div>
 
@@ -37,8 +39,8 @@ require_once 'layout/top.php';
 
                             <tr>
                                 <td><label for="id_user" class="form-label">ID User</label></td>
-                                <td><input class="form-control" type="text" name="id_user" id="id_user" size="50" readonly
-                                        required></td>
+                                <td><input class="form-control" type="text" name="id_ruangan" id="id_ruangan" size="20"
+                                        readonly value="<?= $dataRuangan['id_ruangan'] ?>">
 
                             </tr>
 
