@@ -26,7 +26,8 @@ if (isset($_POST['login'])) {
             header('Location: ../../user/mahasiswa/index.php');
         }
     } else {
-        header('Location: ../../login.php?loginFail=1');
+        $msg = 'Username atau Password salah';
+        header("Location: ../../login.php?msg=$msg");
     }
 }
 
