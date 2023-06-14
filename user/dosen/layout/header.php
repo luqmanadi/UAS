@@ -29,7 +29,11 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
+<<<<<<< HEAD
                                 <a class="dropdown-item" href="profile.php">
+=======
+                                <a class="dropdown-item" href="<?= str_contains($_SERVER['PHP_SELF'], '/admin') ? 'profile.php' : 'profile.php' ?>">
+>>>>>>> dbf35eae6cd9f7a30e3ff25dde3bb533956e5718
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>

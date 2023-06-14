@@ -3,7 +3,11 @@
 require_once 'layout/top.php';
 
 $id_user = $_SESSION['id_user'];
+<<<<<<< HEAD
 $dataDosen = getDosen($connection, $id_user);
+=======
+$dataDosen = getAkun($connection, $id_user);
+>>>>>>> dbf35eae6cd9f7a30e3ff25dde3bb533956e5718
 
 ?>
 
@@ -31,7 +35,11 @@ $dataDosen = getDosen($connection, $id_user);
                                 <td>ID Anda</td>
                                 <td>:</td>
                                 <td>
+<<<<<<< HEAD
                                     <?= $dataDosen['id_user'] ?>
+=======
+                                <?= $dataDosen['id_user'] ?>
+>>>>>>> dbf35eae6cd9f7a30e3ff25dde3bb533956e5718
                                 </td>
                             </tr>
                             <tr>
@@ -52,7 +60,11 @@ $dataDosen = getDosen($connection, $id_user);
                                 <td>Password</td>
                                 <td>:</td>
                                 <td>
+<<<<<<< HEAD
                                     <?= $dataDosen['password'] ?>
+=======
+                                    <?= $dataDose['password'] ?>
+>>>>>>> dbf35eae6cd9f7a30e3ff25dde3bb533956e5718
                                 </td>
                             </tr>
                             <tr>
@@ -68,7 +80,11 @@ $dataDosen = getDosen($connection, $id_user);
                                 </td>
                                 <td>:</td>
                                 <td>
+<<<<<<< HEAD
                                     <?= $dataDosen['no_hp'] ?>
+=======
+                                    <?= $dataDose['no_hp'] ?>
+>>>>>>> dbf35eae6cd9f7a30e3ff25dde3bb533956e5718
                                 </td>
                             </tr>
                             <tr>

@@ -74,7 +74,19 @@ function hitungDosen($connection){
     $total_dosen = mysqli_fetch_array($dosen)[0];
     return $total_dosen;
 }
+function getAkun($connection, $id_user)
+{
+    $query = "SELECT * FROM tbl_dosen INNER JOIN login on tbl_dosen.id_user = login.id_user WHERE login.id_user = '$id_user'";
+    $result = mysqli_query($connection, $query);
+    return $result->fetch_assoc();
+}
 
+function getAkunDosen($connection, $id_user)
+{
+    $query = "SELECT * FROM tbl_dosen INNER JOIN login on tbl_dosen.id_user = login.id_user WHERE login.id_user ='$id_user'";
+    $result = mysqli_query($connection, $query);
+    return $result->fetch_assoc();
+}
 
 ?>
 
