@@ -32,22 +32,16 @@ $dataRuangan = getRuangan($connection, $id_ruangan);
                         <table cellpadding="8" class="w-100">
 
                             <tr>
-                                <td><label for="nama" class="form-label">Nama Lengkap</label></td>
-                                <td><input class="form-control" type="text" name="nama" id="nama" size="50" required>
-                                </td>
-                            </tr>
-
+                                <td><label for="id_ruangan" class="form-label">ID Ruangan</label></td>
+                                <td><input class="form-control" type="text" name="id_ruangan" id="id_ruangan" size="20"
+                                    readonly value="<?= $dataRuangan['id_ruangan'] ?>">
+                             </tr>
+                            
                             <tr>
                                 <td><label for="id_user" class="form-label">ID User</label></td>
-                                <td><input class="form-control" type="text" name="id_ruangan" id="id_ruangan" size="20"
-                                        readonly value="<?= $dataRuangan['id_ruangan'] ?>">
-
-                            </tr>
-
-                            <tr>
-                                <td><label for="id_ruangan" class="form-label">ID Ruangan</label></td>
-                                <td><input class="form-control" type="text" name="id_ruangan" id="id_ruangan" size="50" readonly
+                                <td><input class="form-control" type="text" name="id_user" id="id_user" size="50" placeholder="Masukkan ID User"
                                         required></td>
+
                             </tr>
 
                             <tr>
@@ -66,7 +60,7 @@ $dataRuangan = getRuangan($connection, $id_ruangan);
 
                             <tr>
                                 <td><label for="keperluan" class="form-label">Keperluan</label></td>
-                                <td><input class="form-control" type="textarea" name="keperluan" id="keperluan" size="50"
+                                <td><input class="form-control" type="textarea" name="keperluan" id="keperluan" size="50"placeholder="Berikan Alasan Anda"
                                         required>
                                 </td>
 
